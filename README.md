@@ -1,2 +1,2 @@
-# BookFinderAI
-주제: ChatGPT API를 활용한 사용자 경험 기반 책 추천 서비스
+# TikTacToeWithGPT
+주제: ChatGPT API를 활용한 인공지능 상대 틱택톡 게임
