@@ -40,11 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const userWin = {
-        role: 'user',
-        content: `User INPUT: action: end, board:${JSON.stringify(gameBoard)}.`
-    }
-
     // // Check if there is a winner
     function checkForWin() {
         // Check rows
@@ -87,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function announceWinner(player) {
         if (player === 1) {
-            makeAIMove(userWin);
             alert("당신이 승리했습니다!");
         } else {
             alert("Chat GPT가 이겼네요!");
@@ -96,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function announceTie() {
-        makeAIMove(userWin);
         alert("비겼습니다");
         resetBoard();
     }
