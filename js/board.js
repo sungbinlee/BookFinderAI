@@ -86,13 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert("Chat GPT가 이겼네요!");
         }
-        // resetBoard();
+        resetBoard();
     }
 
-    // Announce a tie
     function announceTie() {
         alert("비겼습니다");
-        // resetBoard();
+        resetBoard();
+    }
+
+    function resetBoard() {
+        gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        cells.forEach(cell => {
+            cell.innerText = "";
+        });
+        currentPlayer = 'X';
+        gameEnded = false;
     }
 
 
