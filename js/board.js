@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < 3; i++) {
             if (gameBoard[i][0] !== 0 && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][0] === gameBoard[i][2]) {
                 gameEnded = true;
-                // announceWinner(gameBoard[i][0]);
+                announceWinner(gameBoard[i][0]);
                 return;
             }
         }
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let j = 0; j < 3; j++) {
             if (gameBoard[0][j] !== 0 && gameBoard[0][j] === gameBoard[1][j] && gameBoard[0][j] === gameBoard[2][j]) {
                 gameEnded = true;
-                // announceWinner(gameBoard[0][j]);
+                announceWinner(gameBoard[0][j]);
                 return;
             }
         }
@@ -63,21 +63,36 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check diagonals
         if (gameBoard[0][0] !== 0 && gameBoard[0][0] === gameBoard[1][1] && gameBoard[0][0] === gameBoard[2][2]) {
             gameEnded = true;
-            // announceWinner(gameBoard[0][0]);
+            announceWinner(gameBoard[0][0]);
             return;
         }
         if (gameBoard[0][2] !== 0 && gameBoard[0][2] === gameBoard[1][1] && gameBoard[0][2] === gameBoard[2][0]) {
             gameEnded = true;
-            // announceWinner(gameBoard[0][2]);
+            announceWinner(gameBoard[0][2]);
             return;
         }
 
         // Check for a tie
         if (!gameBoard.flat().includes(0)) {
             gameEnded = true;
-            // announceTie();
+            announceTie();
             return;
         }
+    }
+
+    function announceWinner(player) {
+        if (player === 1) {
+            alert("당신이 승리했습니다!");
+        } else {
+            alert("Chat GPT가 이겼네요!");
+        }
+        // resetBoard();
+    }
+
+    // Announce a tie
+    function announceTie() {
+        alert("비겼습니다");
+        // resetBoard();
     }
 
 
