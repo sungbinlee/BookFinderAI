@@ -29,20 +29,7 @@
 <body>
     <h1>Tic-Tac-Toe</h1>
     <div class="board"></div>
-
-    <script>
-        const cells = document.querySelectorAll('.cell');
-        let currentPlayer = 'X';
-
-        cells.forEach(cell => {
-            cell.addEventListener('click', () => {
-                if (!cell.textContent) {
-                    cell.textContent = currentPlayer;
-                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                }
-            });
-        });
-    </script>
+    <script src="/js/board.js"></script>
 </body>
 
 </html>
