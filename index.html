@@ -10,36 +10,25 @@
         .board {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            grid-template-rows: repeat(3, 1fr);
+            width: 300px;
+            height: 300px;
         }
 
         .cell {
-            width: 100px;
-            height: 100px;
-            background-color: #eee;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 48px;
+            border: 1px solid #000;
             cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <h1>Tic Tac Toe</h1>
-
-    <div class="board">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-    </div>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="board"></div>
 
     <script>
         const cells = document.querySelectorAll('.cell');
@@ -53,43 +42,6 @@
                 }
             });
         });
-    </script>
-    <script>
-        let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
-
-        let conversation = localStorage.getItem("conversation");
-        if (conversation) {
-            conversation = JSON.parse(conversation);
-        } else {
-            conversation = [{ "role": "system", "content": "You play a tic-tac-toe game with a user. On a player's turn, the player changes the board to 1. On your turn, return the position you placed on the board by changing it to -1. You have to put your message(ex: Intersting..!) too in Korean. but only return your value as JSON action, board, message). Action value have: start, update, end. you have to check who is the winner or looser or tied(Even if the number of cases does not come out, the game must be continued to the end). Your reply should be one line of JSON" }]; // 초기 대화 내용
-        }
-        // [0,0,0],[0,0,0],[0,0,0]
-        // 대화 내용 추가
-        let newMessage = { "role": "user", "content": "User INPUT: action: end, board:[[0,0,-1],[1,1,1],[0,0,-1]]." }
-        // ];
-        conversation.push(newMessage);
-
-        // 서버와 대화 진행
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(conversation),
-            redirect: "follow",
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(JSON.parse(res.choices[0].message.content))
-
-                let response = { "role": "assistant", "content": res.choices[0].message.content }
-                // 서버 응답 처리
-
-
-                // 대화 내용 저장
-                conversation.push(response);
-                localStorage.setItem("conversation", JSON.stringify(conversation))
-            });
     </script>
 </body>
 
