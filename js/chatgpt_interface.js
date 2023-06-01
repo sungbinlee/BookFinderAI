@@ -1,3 +1,4 @@
+
 let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
 let conversation = localStorage.getItem("conversation");
@@ -42,7 +43,6 @@ export function sendToAI(data) {
             // 대화 내용 저장
             conversation.push(response);
             localStorage.setItem("conversation", JSON.stringify(conversation));
-
             // 보드 판 반환
             return (JSON.parse(res.choices[0].message.content));
         })
