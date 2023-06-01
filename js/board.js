@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!gameEnded && gameBoard[i][j] === 0) {
                     cell.innerText = currentPlayer;
                     gameBoard[i][j] = currentPlayer === 'X' ? 1 : -1;
-                    // checkForWin();
+                    checkForWin();
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 
                     const userInput = {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (!gameEnded) {
                         makeAIMove(userInput);
-                        // checkForWin();
+                        checkForWin();
                         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                     }
 
@@ -41,10 +41,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // // Check if there is a winner
-    // function checkForWin() {
-    //     // ...
-    //     // Remaining code remains the same
-    // }
+    function checkForWin() {
+        // Check rows
+        for (let i = 0; i < 3; i++) {
+            if (gameBoard[i][0] !== 0 && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][0] === gameBoard[i][2]) {
+                gameEnded = true;
+                // announceWinner(gameBoard[i][0]);
+                return;
+            }
+        }
+
+        // Check columns
+        for (let j = 0; j < 3; j++) {
+            if (gameBoard[0][j] !== 0 && gameBoard[0][j] === gameBoard[1][j] && gameBoard[0][j] === gameBoard[2][j]) {
+                gameEnded = true;
+                // announceWinner(gameBoard[0][j]);
+                return;
+            }
+        }
+
+        // Check diagonals
+        if (gameBoard[0][0] !== 0 && gameBoard[0][0] === gameBoard[1][1] && gameBoard[0][0] === gameBoard[2][2]) {
+            gameEnded = true;
+            // announceWinner(gameBoard[0][0]);
+            return;
+        }
+        if (gameBoard[0][2] !== 0 && gameBoard[0][2] === gameBoard[1][1] && gameBoard[0][2] === gameBoard[2][0]) {
+            gameEnded = true;
+            // announceWinner(gameBoard[0][2]);
+            return;
+        }
+
+        // Check for a tie
+        if (!gameBoard.flat().includes(0)) {
+            gameEnded = true;
+            // announceTie();
+            return;
+        }
+    }
 
 
     // Make a move for the AI opponent
@@ -68,8 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Announce the result from the AI's response
-            if (aiResponse.action === "end") {
-                gameEnded = true;
+            if (gameEnded === true) {
                 alert(aiResponse.message);
                 // resetBoard();
             } else {
