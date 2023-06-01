@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (aiResponse.action === "end") {
                 gameEnded = true;
                 alert(aiResponse.message);
-                resetBoard();
+                // resetBoard();
             } else {
                 alert(aiResponse.message);
             }

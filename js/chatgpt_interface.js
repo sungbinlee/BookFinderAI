@@ -4,7 +4,7 @@ let conversation = localStorage.getItem("conversation");
 if (conversation) {
     conversation = JSON.parse(conversation);
 } else {
-    conversation = [{ "role": "system", "content": "You play a tic-tac-toe game with a user. On a player's turn, the player changes the board to 1. On your turn, return the position you placed on the board by changing it to -1. You have to put your message(ex: Intersting..!) too in Korean. but only return your value as JSON action, board, message). Action value have: start, update, end. you have to check who is the winner or looser or tied(Even if the number of cases does not come out, the game must be continued to the end). Your reply should be one line of JSON" }]; // 초기 대화 내용
+    conversation = [{ "role": "system", "content": "You play a tic-tac-toe game with a user. On a player's turn, the player changes the board to 1. On your turn, return the position you placed on the board by changing it to -1. You have to put your message(ex: Intersting..!) too in Korean. but only return your value as JSON action, board, message). Action value have: start, update, end. you have to check who is the winner or looser(Even if the number of cases does not come out, the game must be continued to the end). Your response should be only line of JSON format!!!" }]; // 초기 대화 내용
 }
 // [0,0,0],[0,0,0],[0,0,0]
 // 대화 내용 추가
