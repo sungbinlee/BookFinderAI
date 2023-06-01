@@ -8,28 +8,43 @@ if (conversation) {
 }
 // [0,0,0],[0,0,0],[0,0,0]
 // 대화 내용 추가
-let newMessage = { "role": "user", "content": "User INPUT: action: end, board:[[0,0,-1],[1,1,1],[0,0,-1]]." }
-// ];
-conversation.push(newMessage);
-
-// 서버와 대화 진행
-fetch(url, {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify(conversation),
-    redirect: "follow",
-})
-    .then((res) => res.json())
-    .then((res) => {
-        console.log(JSON.parse(res.choices[0].message.content))
-
-        let response = { "role": "assistant", "content": res.choices[0].message.content }
-        // 서버 응답 처리
 
 
-        // 대화 내용 저장
-        conversation.push(response);
-        localStorage.setItem("conversation", JSON.stringify(conversation))
-    });
+export function sendToAI(data) {
+    // console.log(data);
+
+    let newMessage = data;
+    conversation.push(newMessage);
+    console.log(newMessage)
+    // 서버와 대화 진행
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(conversation),
+        redirect: "follow",
+    })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error('Server response wasn\'t OK');
+            }
+        })
+        .then((res) => {
+            const result = (JSON.parse(res.choices[0].message.content))
+
+            let response = { "role": "assistant", "content": res.choices[0].message.content };
+            // 서버 응답 처리
+
+
+            // 대화 내용 저장
+            conversation.push(response);
+            localStorage.setItem("conversation", JSON.stringify(conversation));
+
+            // 보드 판 반환
+            return (JSON.parse(res.choices[0].message.content));
+        })
+
+}
