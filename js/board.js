@@ -135,9 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
-
             displayMessage(aiResponse.message);
-
         });
     }
 });
