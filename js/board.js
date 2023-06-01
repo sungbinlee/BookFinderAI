@@ -3,7 +3,7 @@ import * as gpt from "./chatgpt_interface.js";
 document.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector('.board');
     const cells = [];
-    let gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; // 게임판 
+    let gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; // 게임판 2d array
 
     let currentPlayer = 'X';
     let gameEnded = false;
