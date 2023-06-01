@@ -110,6 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
         gameEnded = false;
     }
 
+    function displayMessage(message) {
+        const messageBoard = document.querySelector('.message-board');
+        messageBoard.innerText = message;
+    }
+
 
     // Make a move for the AI opponent
     function makeAIMove(userInput) {
@@ -131,13 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Announce the result from the AI's response
-            if (gameEnded === true) {
-                alert(aiResponse.message);
-                // resetBoard();
-            } else {
-                alert(aiResponse.message);
-            }
+            displayMessage(aiResponse.message);
+
         });
     }
 });
