@@ -1,4 +1,4 @@
-import * as gpt from "./chatgpt_interface.js";
+import * as gpt from "./chatgpt-interface.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector('.board');
@@ -110,18 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         alert("Chat GPT가 이겼네요!");
                     }
-                    resetBoard();
                     cells[a].classList.remove('winning-cell');
                     cells[b].classList.remove('winning-cell');
                     cells[c].classList.remove('winning-cell');
-                }, 3000); // 5초 딜레이
-
-
-
+                    resetBoard();
+                }, 3000);
                 break;
             }
         }
-        // resetBoard();
     }
 
     function announceTie() {
@@ -148,8 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Make a move for the AI opponent
     function makeAIMove(userInput) {
         showLoadingIndicator();
-
-
         gpt.sendToAI(userInput).then(res => {
             console.log(res);
 
