@@ -7,6 +7,7 @@ if (conversation) {
     conversation = JSON.parse(conversation);
 } else {
     conversation = convo.conversation; // 초기 대화 내용
+    console.log(conversation);
 }
 // [0,0,0],[0,0,0],[0,0,0]
 // 대화 내용 추가
@@ -29,14 +30,14 @@ export function sendToAI(data) {
     })
         .then((res) => {
             if (res.ok) {
+                console.log(res);
                 return res.json();
             } else {
                 throw new Error('Server response wasn\'t OK');
             }
         })
         .then((res) => {
-            const result = (JSON.parse(res.choices[0].message.content))
-
+            console.log(res);
             let response = { "role": "assistant", "content": res.choices[0].message.content };
             // 서버 응답 처리
 
