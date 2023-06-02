@@ -3,6 +3,8 @@ import * as gpt from "./chatgpt_interface.js";
 document.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector('.board');
     const cells = [];
+    const loadingIndicator = document.querySelector('.loading-indicator');
+
     let gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; // 게임판 2d array
 
     let currentPlayer = 'X';
@@ -113,9 +115,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Make a move for the AI opponent
     function makeAIMove(userInput) {
+        showLoadingIndicator();
+
 
         gpt.sendToAI(userInput).then(res => {
             console.log(res);
+
+            showLoadingIndicator();
+            //보드판 비활성화; AI응답시까지
+            board.style.pointerEvents = 'none';
 
             const aiResponse = res;
 
@@ -132,6 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             displayMessage(aiResponse.message);
+            // 보드판 활성화
+            board.style.pointerEvents = 'auto';
+            hideLoadingIndicator();
         });
+    }
+
+    function showLoadingIndicator() {
+        loadingIndicator.style.display = 'block';
+    }
+
+    function hideLoadingIndicator() {
+        loadingIndicator.style.display = 'none';
     }
 });
