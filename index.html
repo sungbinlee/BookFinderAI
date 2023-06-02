@@ -81,6 +81,20 @@
                 transform: rotate(360deg);
             }
         }
+
+        .winning-cell {
+            animation: highlight-cell 1s infinite alternate;
+        }
+
+        @keyframes highlight-cell {
+            0% {
+                background-color: yellow;
+            }
+
+            100% {
+                background-color: initial;
+            }
+        }
     </style>
     <script src="./js/chatgpt_interface.js" type="module"></script>
     <script src="./js/board.js" type="module"></script>

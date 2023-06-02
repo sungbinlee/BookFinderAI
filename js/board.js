@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (!gameEnded) {
                         makeAIMove(userInput);
-                        checkForWin();
+                        // checkForWin();
                         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                     }
 
