@@ -18,3 +18,11 @@
 .cell:hover {
     background-color: #edf2f7;
 }
+
+.version-info {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #888;
+}
