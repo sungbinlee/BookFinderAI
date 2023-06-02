@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showLoadingIndicator() {
-        loadingIndicator.style.display = 'block';
+        loadingIndicator.style.display = 'flex';
     }
 
     function hideLoadingIndicator() {
