@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check for a tie
         if (!gameBoard.flat().includes(0)) {
             gameEnded = true;
+
             announceTie();
             return;
         }
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetBoard() {
+        localStorage.removeItem("conversation");
         gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
         cells.forEach(cell => {
             cell.innerText = "";
