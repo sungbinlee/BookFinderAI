@@ -84,12 +84,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function announceWinner(player) {
-        if (player === 1) {
-            alert("당신이 승리했습니다!");
-        } else {
-            alert("Chat GPT가 이겼네요!");
+
+        const messageBoard = document.querySelector('.message-board');
+        const winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+            [0, 4, 8], [2, 4, 6] // Diagonals
+        ];
+
+        for (const combination of winningCombinations) {
+            const [a, b, c] = combination;
+            if (
+                gameBoard[Math.floor(a / 3)][a % 3] === player &&
+                gameBoard[Math.floor(b / 3)][b % 3] === player &&
+                gameBoard[Math.floor(c / 3)][c % 3] === player
+            ) {
+                // Highlight the winning cells
+                cells[a].classList.add('winning-cell');
+                cells[b].classList.add('winning-cell');
+                cells[c].classList.add('winning-cell');
+
+                setTimeout(() => {
+                    if (player === 1) {
+                        alert("당신이 승리했습니다!");
+                    } else {
+                        alert("Chat GPT가 이겼네요!");
+                    }
+                    resetBoard();
+                    cells[a].classList.remove('winning-cell');
+                    cells[b].classList.remove('winning-cell');
+                    cells[c].classList.remove('winning-cell');
+                }, 3000); // 5초 딜레이
+
+
+
+                break;
+            }
         }
-        resetBoard();
+        // resetBoard();
     }
 
     function announceTie() {
