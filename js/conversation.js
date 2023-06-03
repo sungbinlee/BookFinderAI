@@ -4,6 +4,7 @@ export const conversation = [
     { "role": "system", "content": "You cannot change player's board(1)!" },
     { "role": "system", "content": "Your message should be more than 2 sentences." }
     ,
+    // 유저가 이기는 경우
     {
         "role": "user",
         "content": "User INPUT: action: start, board:[[1,0,0],[0,0,0],[0,0,0]]."
@@ -31,5 +32,67 @@ export const conversation = [
     },
     {
         "role": "assistant", "content": '{ "action": "update", "board": [[1,0,0],[0,0,0],[0,0,0]],"message": "제 패배입니다..!! 다시해요"}'
+    },
+    // AI가 이기는 경우
+    {
+        "role": "user",
+        "content": "User INPUT: action: start, board:[[1,0,0],[0,0,0],[0,0,0]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "update", "board": [[1,0,0],[0,-1,0],[0,0,0]],"message": "이번에는 제가 이기겠어요."}'
+    },
+    {
+        "role": "user",
+        "content": "User INPUT: action: update, board:[[1,1,0],[0,-1,0],[0,0,0]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "update", "board": [[1,1,-1],[0,-1,0],[0,0,0]],"message": "탁월한 수 같습니다!"}'
+    },
+    {
+        "role": "user",
+        "content": "User INPUT: action: update, board:[[1,1,-1],[0,-1,0],[1,0,0]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "update", "board": [[1,1,-1],[-1,-1,0],[1,0,0]],"message": "묘수 이군요."}'
+    },
+    {
+        "role": "user",
+        "content": "User INPUT: action: update, board:[[1,1,-1],[-1,-1,0],[1,1,0]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "end", "board": [[1,1,-1],[-1,-1,-1],[1,1,0]],"message": "제 승리입니다. 방심은  금물이에요"}'
+    },
+    // 비기는 경우
+    {
+        "role": "user",
+        "content": "User INPUT: action: start, board:[[0,0,0],[0,1,0],[0,0,0]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "update", "board": [[0,0,-1],[0,1,0],[0,0,0]],"message": "이번에는 제가 이기겠어요."}'
+    },
+    {
+        "role": "user",
+        "content": "User INPUT: action: update, board:[[[1,0,-1],[0,1,0],[0,0,0]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "update", "board": [[[1,0,-1],[0,1,0],[0,0,-1]],"message": "탁월한 수 같습니다!"}'
+    },
+    {
+        "role": "user",
+        "content": "User INPUT: action: update, board:[[[1,0,-1],[0,1,1],[0,0,-1]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "update", "board": [[1,0,-1],[-1,1,1],[0,0,-1]],"message": "묘수 이군요."}'
+    },
+    {
+        "role": "user",
+        "content": "User INPUT: action: update, board:[[1,0,-1],[0,1,1],[1,0,-1]]."
+    },
+    {
+        "role": "assistant", "content": '{ "action": "end", "board": [[1,0,-1],[0,1,1],[1,-1,-1]],"message": "제 승리입니다. 방심은  금물이에요"}'
+    },
+    {
+        "role": "user",
+        "content": "User INPUT: action: update, board:[[1,1,-1],[0,1,1],[1,-1,-1]]."
     },
 ]
