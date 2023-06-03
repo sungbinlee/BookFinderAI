@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 'X';
     let gameEnded = false;
 
+    // 보드판에서 user는 1, ai는 -1로 표현합니다.
+    const user = 1;
+    const ai = -1;
+
     // Create the game board
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -18,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.addEventListener('click', () => {
                 if (!gameEnded && gameBoard[i][j] === 0) {
                     cell.innerText = currentPlayer;
-                    gameBoard[i][j] = currentPlayer === 'X' ? 1 : -1;
+                    gameBoard[i][j] = user;
                     checkForWin();
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 
@@ -29,12 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (!gameEnded) {
                         makeAIMove(userInput);
-                        // checkForWin();
                         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                     }
-
-                    // Send userInput to the AI
-                    // Example of sending userInput to the AI:
                 }
             });
             board.appendChild(cell);
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // // Check if there is a winner
+    // Check if there is a winner
     function checkForWin() {
         // Check rows
         for (let i = 0; i < 3; i++) {
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < 3; i++) {
                 for (let j = 0; j < 3; j++) {
                     if (gameBoard[i][j] !== 0) {
-                        cells[i * 3 + j].innerText = gameBoard[i][j] === -1 ? 'O' : 'X';
+                        cells[i * 3 + j].innerText = gameBoard[i][j] === ai ? 'O' : 'X';
                         checkForWin();
                     }
                 }
