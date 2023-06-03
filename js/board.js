@@ -161,10 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let j = 0; j < 3; j++) {
                     if (gameBoard[i][j] !== 0) {
                         cells[i * 3 + j].innerText = gameBoard[i][j] === -1 ? 'O' : 'X';
-                        checkForWin();
                     }
                 }
             }
+            checkForWin();
             displayMessage(aiResponse.message);
             // 보드판 활성화
             board.style.pointerEvents = 'auto';
