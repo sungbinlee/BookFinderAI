@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cells = [];
     const loadingIndicator = document.querySelector('.loading-indicator');
 
-    let gameBoard = [[1, -1, -1], [-1, 1, 1], [1, 0, -1]]; // 게임판 2d array
+    let gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; // 게임판 2d array
 
     let currentPlayer = 'X';
     let gameEnded = false;
