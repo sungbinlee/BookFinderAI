@@ -120,8 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     cells[a].classList.remove('winning-cell');
                     cells[b].classList.remove('winning-cell');
                     cells[c].classList.remove('winning-cell');
-                    resetBoard();
-                }, 2000);
+                }, 1500);
                 break;
             }
         }
@@ -237,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultMessage.classList.add('fade-out');
             setTimeout(() => {
                 resultMessage.remove();
+                resetBoard();
             }, 2000);
         }, 1000);
     }
