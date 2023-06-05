@@ -116,16 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 cells[c].classList.add('winning-cell');
 
                 setTimeout(() => {
-                    if (player === 1) {
-                        alert("당신이 승리했습니다!");
-                    } else {
-                        alert("Chat GPT가 이겼네요!");
-                    }
+                    announceResult(player);
                     cells[a].classList.remove('winning-cell');
                     cells[b].classList.remove('winning-cell');
                     cells[c].classList.remove('winning-cell');
                     resetBoard();
-                }, 3000);
+                }, 2000);
                 break;
             }
         }
@@ -134,10 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * 비김을 알립니다.
      */
-    // function announceTie() {
-    //     alert("비겼습니다");
-    //     resetBoard();
-    // }
     function announceTie() {
         const board = document.querySelector('.board');
         const tieMessage = document.createElement('div');
@@ -148,11 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             tieMessage.remove();
             resetBoard();
-        }, 3000);
+        }, 2000);
     }
-
-
-
 
     /**
      * 게임 보드를 초기화합니다.
@@ -224,4 +213,36 @@ document.addEventListener('DOMContentLoaded', () => {
     function hideLoadingIndicator() {
         loadingIndicator.style.display = 'none';
     }
+
+    /*
+ * announceResult 함수는 게임의 승자를 전달받아서 화면에 결과 메시지를 표시하고 보드를 초기화합니다.
+ * @param {string} winner - 게임의 승자 (user 또는 ai)
+ * @returns {void}
+ */
+    function announceResult(winner) {
+        const messageBoard = document.querySelector('.message-board');
+        let resultMessage;
+
+        if (winner === user) {
+            resultMessage = document.createElement('div');
+            resultMessage.classList.add('user-win-message');
+            resultMessage.innerText = '승리';
+        } else {
+            resultMessage = document.createElement('div');
+            resultMessage.classList.add('ai-win-message');
+            resultMessage.innerText = '패배';
+        }
+
+        document.body.appendChild(resultMessage);
+
+        setTimeout(() => {
+            resultMessage.classList.add('fade-out');
+            setTimeout(() => {
+                resultMessage.remove();
+                resetBoard();
+            }, 500);
+        }, 2000);
+    }
+
+
 });
