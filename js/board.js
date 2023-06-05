@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function makeAIMove(userInput) {
         showLoadingIndicator();
         gpt.sendToAI(userInput).then(res => {
-            console.log(res);
+            // console.log(res);
 
             showLoadingIndicator();
             //보드판 비활성화; AI응답시까지
