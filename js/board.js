@@ -1,5 +1,9 @@
 import * as gpt from "./chatgpt-interface.js";
 
+
+/**
+ * 게임 보드에서 사용자의 클릭 이벤트를 처리하여 게임 진행을 제어합니다.
+ */
 document.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector('.board');
     const cells = [];
@@ -10,7 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 'X';
     let gameEnded = false;
 
-    // Create the game board
+    // 보드판에서 user는 1, ai는 -1로 표현합니다.
+    const user = 1;
+    const ai = -1;
+
+    /**
+    * 게임 보드를 생성합니다.
+    */
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             const cell = document.createElement('div');
@@ -18,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.addEventListener('click', () => {
                 if (!gameEnded && gameBoard[i][j] === 0) {
                     cell.innerText = currentPlayer;
-                    gameBoard[i][j] = currentPlayer === 'X' ? 1 : -1;
+                    gameBoard[i][j] = user;
                     checkForWin();
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 
@@ -29,12 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (!gameEnded) {
                         makeAIMove(userInput);
-                        // checkForWin();
                         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                     }
-
-                    // Send userInput to the AI
-                    // Example of sending userInput to the AI:
                 }
             });
             board.appendChild(cell);
@@ -42,9 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // // Check if there is a winner
+    /**
+     * 승자를 확인합니다.
+     */
     function checkForWin() {
-        // Check rows
+        // 가로 확인
         for (let i = 0; i < 3; i++) {
             if (gameBoard[i][0] !== 0 && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][0] === gameBoard[i][2]) {
                 gameEnded = true;
@@ -53,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Check columns
+        // 세로 확인
         for (let j = 0; j < 3; j++) {
             if (gameBoard[0][j] !== 0 && gameBoard[0][j] === gameBoard[1][j] && gameBoard[0][j] === gameBoard[2][j]) {
                 gameEnded = true;
@@ -62,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Check diagonals
+        // 대각선 확인
         if (gameBoard[0][0] !== 0 && gameBoard[0][0] === gameBoard[1][1] && gameBoard[0][0] === gameBoard[2][2]) {
             gameEnded = true;
             announceWinner(gameBoard[0][0]);
@@ -74,15 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Check for a tie
+        // 비겼는지 확인
         if (!gameBoard.flat().includes(0)) {
             gameEnded = true;
-
             announceTie();
             return;
         }
     }
 
+    /**
+     * 승자를 알립니다.
+     * @param {number} player - 승리한 플레이어 (1: 사용자, -1: AI)
+     */
     function announceWinner(player) {
 
         const messageBoard = document.querySelector('.message-board');
@@ -99,32 +110,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameBoard[Math.floor(b / 3)][b % 3] === player &&
                 gameBoard[Math.floor(c / 3)][c % 3] === player
             ) {
-                // Highlight the winning cells
+                // 승리한 셀을 하이라이트 처리합니다.
                 cells[a].classList.add('winning-cell');
                 cells[b].classList.add('winning-cell');
                 cells[c].classList.add('winning-cell');
 
                 setTimeout(() => {
-                    if (player === 1) {
-                        alert("당신이 승리했습니다!");
-                    } else {
-                        alert("Chat GPT가 이겼네요!");
-                    }
+                    announceResult(player);
                     cells[a].classList.remove('winning-cell');
                     cells[b].classList.remove('winning-cell');
                     cells[c].classList.remove('winning-cell');
                     resetBoard();
-                }, 3000);
+                }, 2000);
                 break;
             }
         }
     }
 
+    /**
+     * 비김을 알립니다.
+     */
     function announceTie() {
-        alert("비겼습니다");
-        resetBoard();
+        const board = document.querySelector('.board');
+        const tieMessage = document.createElement('div');
+        tieMessage.classList.add('tie-message');
+        tieMessage.innerText = '비겼습니다';
+        board.appendChild(tieMessage);
+
+        setTimeout(() => {
+            tieMessage.remove();
+            resetBoard();
+        }, 2000);
     }
 
+    /**
+     * 게임 보드를 초기화합니다.
+     */
     function resetBoard() {
         localStorage.removeItem("conversation");
         gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
@@ -135,17 +156,23 @@ document.addEventListener('DOMContentLoaded', () => {
         gameEnded = false;
     }
 
+    /**
+     * 메시지를 화면에 표시합니다.
+     * @param {string} message - 표시할 메시지
+     */
     function displayMessage(message) {
         const messageBoard = document.querySelector('.message-board');
         messageBoard.innerText = message;
     }
 
-
-    // Make a move for the AI opponent
+    /**
+     * AI의 움직임을 실행합니다.
+     * @param {object} userInput - 사용자의 입력 정보
+     */
     function makeAIMove(userInput) {
         showLoadingIndicator();
         gpt.sendToAI(userInput).then(res => {
-            console.log(res);
+            // console.log(res);
 
             showLoadingIndicator();
             //보드판 비활성화; AI응답시까지
@@ -153,10 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const aiResponse = res;
 
-            // Update the game board based on the AI's response
+            // AI 응답에 따라 게임 보드 업데이트
             gameBoard = aiResponse.board;
 
-            // Display the AI's move on the game board
+            // AI의 움직임을 게임 보드에 표시
             for (let i = 0; i < 3; i++) {
                 for (let j = 0; j < 3; j++) {
                     if (gameBoard[i][j] !== 0) {
@@ -172,11 +199,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /**
+     * 로딩 인디케이터를 표시합니다.
+     */
     function showLoadingIndicator() {
         loadingIndicator.style.display = 'flex';
     }
 
+    /**
+     * 로딩 인디케이터를 숨깁니다.
+     */
     function hideLoadingIndicator() {
         loadingIndicator.style.display = 'none';
+    }
+
+    /**
+    * announceResult 함수는 게임의 승자를 전달받아서 화면에 결과 메시지를 표시하고 보드를 초기화합니다.
+    * @param {string} winner - 게임의 승자 (user 또는 ai)
+    * @returns {void}
+    */
+    function announceResult(winner) {
+        let resultMessage;
+
+        if (winner === user) {
+            resultMessage = document.createElement('div');
+            resultMessage.classList.add('user-win-message');
+            resultMessage.innerText = '승리';
+        } else {
+            resultMessage = document.createElement('div');
+            resultMessage.classList.add('ai-win-message');
+            resultMessage.innerText = '패배';
+        }
+
+        document.body.appendChild(resultMessage);
+
+        setTimeout(() => {
+            resultMessage.classList.add('fade-out');
+            setTimeout(() => {
+                resultMessage.remove();
+            }, 2000);
+        }, 1000);
     }
 });

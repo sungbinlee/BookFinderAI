@@ -1,0 +1,63 @@
+.tie-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 82px;
+    font-weight: bold;
+    color: #333;
+    background-color: rgba(199, 199, 199, 0.8);
+    z-index: 9999;
+    animation: fade-in 0.5s forwards, fade-out 0.5s;
+    animation-delay: 0s, 2.5s;
+}
+
+.user-win-message,
+.ai-win-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 82px;
+    font-weight: bold;
+    background-color: rgba(199, 199, 199, 0.8);
+    z-index: 9999;
+    animation: fade-in 0.5s forwards, fade-out 0.5s;
+    animation-delay: 0s, 2.5s;
+}
+
+.user-win-message {
+    color: rgb(205, 51, 51);
+}
+
+.ai-win-message {
+    color: rgb(45, 45, 176);
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
