@@ -165,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
         messageBoard.innerText = message;
     }
 
-
     /**
      * AI의 움직임을 실행합니다.
      * @param {object} userInput - 사용자의 입력 정보
@@ -214,13 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingIndicator.style.display = 'none';
     }
 
-    /*
- * announceResult 함수는 게임의 승자를 전달받아서 화면에 결과 메시지를 표시하고 보드를 초기화합니다.
- * @param {string} winner - 게임의 승자 (user 또는 ai)
- * @returns {void}
- */
+    /**
+    * announceResult 함수는 게임의 승자를 전달받아서 화면에 결과 메시지를 표시하고 보드를 초기화합니다.
+    * @param {string} winner - 게임의 승자 (user 또는 ai)
+    * @returns {void}
+    */
     function announceResult(winner) {
-        const messageBoard = document.querySelector('.message-board');
         let resultMessage;
 
         if (winner === user) {
@@ -239,10 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultMessage.classList.add('fade-out');
             setTimeout(() => {
                 resultMessage.remove();
-                resetBoard();
-            }, 500);
-        }, 2000);
+            }, 2000);
+        }, 1000);
     }
-
-
 });
