@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cells = [];
     const loadingIndicator = document.querySelector('.loading-indicator');
 
-    let gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; // 게임판 2d array
+    let gameBoard = [[1, -1, -1], [-1, 1, 1], [1, 0, -1]]; // 게임판 2d array
 
     let currentPlayer = 'X';
     let gameEnded = false;
@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 비겼는지 확인
         if (!gameBoard.flat().includes(0)) {
             gameEnded = true;
-
             announceTie();
             return;
         }
@@ -135,10 +134,25 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * 비김을 알립니다.
      */
+    // function announceTie() {
+    //     alert("비겼습니다");
+    //     resetBoard();
+    // }
     function announceTie() {
-        alert("비겼습니다");
-        resetBoard();
+        const board = document.querySelector('.board');
+        const tieMessage = document.createElement('div');
+        tieMessage.classList.add('tie-message');
+        tieMessage.innerText = '비겼습니다';
+        board.appendChild(tieMessage);
+
+        setTimeout(() => {
+            tieMessage.remove();
+            resetBoard();
+        }, 3000);
     }
+
+
+
 
     /**
      * 게임 보드를 초기화합니다.
@@ -186,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let j = 0; j < 3; j++) {
                     if (gameBoard[i][j] !== 0) {
                         cells[i * 3 + j].innerText = gameBoard[i][j] === -1 ? 'O' : 'X';
-                        checkForWin();
                     }
                 }
             }
