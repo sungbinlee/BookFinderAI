@@ -16,7 +16,7 @@ export function sendToAI(data) {
 
     let newMessage = data;
     conversation = [...conversation, newMessage];
-    console.log(newMessage)
+    // console.log(newMessage)
     // 서버와 대화 진행
     return fetch(url, {
         method: "POST",
@@ -28,14 +28,14 @@ export function sendToAI(data) {
     })
         .then((res) => {
             if (res.ok) {
-                console.log(res);
+                // console.log(res);
                 return res.json();
             } else {
                 throw new Error('Server response wasn\'t OK');
             }
         })
         .then((res) => {
-            console.log(res);
+            // console.log(res);
             let response = { "role": "assistant", "content": res.choices[0].message.content };
             // 대화 내용 저장
             conversation = [...conversation, response];
