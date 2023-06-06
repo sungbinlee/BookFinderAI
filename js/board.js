@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     cells[a].classList.remove('winning-cell');
                     cells[b].classList.remove('winning-cell');
                     cells[c].classList.remove('winning-cell');
-                }, 1500);
+                }, 2000);
                 break;
             }
         }
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             tieMessage.remove();
             resetBoard();
-        }, 2000);
+        }, 3000);
     }
 
     /**
