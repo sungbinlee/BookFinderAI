@@ -5,12 +5,57 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: #f7fafc;
-    font-family: Arial, sans-serif;
+    font-family: 'Righteous', cursive;
 }
 
-h1 {
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1.title {
+    font-size: 42px;
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    animation: slideIn 1s ease-in-out;
+}
+
+h1.subtitle {
     font-size: 24px;
-    margin-bottom: 20px;
+    color: #888;
+    transform: rotate(8deg);
+    position: absolute;
+    top: -10px;
+    right: -30px;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .version-info {
@@ -19,4 +64,5 @@ h1 {
     right: 10px;
     font-size: 12px;
     color: #888;
+    font-family: Arial, sans-serif;
 }
