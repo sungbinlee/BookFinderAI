@@ -1,5 +1,10 @@
 import * as gpt from "./chatgpt-interface.js";
+import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage } from "./ui.js"
 
+// 점수판
+export let playerScore = 0;
+export let tieScore = 0;
+export let aiScore = 0;
 
 /**
  * 게임 보드에서 사용자의 클릭 이벤트를 처리하여 게임 진행을 제어합니다.
@@ -7,20 +12,14 @@ import * as gpt from "./chatgpt-interface.js";
 document.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector('.board');
     const cells = [];
-    const loadingIndicator = document.querySelector('.loading-indicator');
 
     let gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; // 게임판 2d array
-
     let currentPlayer = 'X';
     let gameEnded = false;
 
     // 보드판에서 user는 1, ai는 -1로 표현합니다.
     const user = 1;
     const ai = -1;
-
-    let playerScore = 0;
-    let tieScore = 0;
-    let aiScore = 0;
 
     /**
     * 게임 보드를 생성합니다.
@@ -36,13 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     checkForWin();
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 
-                    const userInput = {
+                    const userAction = {
                         role: 'user',
                         content: `User INPUT: action: start, board:${JSON.stringify(gameBoard)}.`
                     };
 
                     if (!gameEnded) {
-                        makeAIMove(userInput);
+                        makeAIMove(userAction);
                         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                     }
                 }
@@ -120,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cells[c].classList.add('winning-cell');
 
                 setTimeout(() => {
-                    announceResult(player);
+                    showResult(player);
                     cells[a].classList.remove('winning-cell');
                     cells[b].classList.remove('winning-cell');
                     cells[c].classList.remove('winning-cell');
@@ -148,82 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * 게임 보드를 초기화합니다.
-     */
-    function resetBoard() {
-        localStorage.removeItem("conversation");
-        gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-        cells.forEach(cell => {
-            cell.innerText = "";
-        });
-        currentPlayer = 'X';
-        gameEnded = false;
-        updateScoreboard();
-    }
-
-    /**
-     * 메시지를 화면에 표시합니다.
-     * @param {string} message - 표시할 메시지
-     */
-    function displayMessage(message) {
-        const messageBoard = document.querySelector('.message-board');
-        messageBoard.innerText = message;
-    }
-
-    /**
-     * AI의 움직임을 실행합니다.
-     * @param {object} userInput - 사용자의 입력 정보
-     */
-    function makeAIMove(userInput) {
-        showLoadingIndicator();
-        gpt.sendToAI(userInput).then(res => {
-            // console.log(res);
-
-            showLoadingIndicator();
-            //보드판 비활성화; AI응답시까지
-            board.style.pointerEvents = 'none';
-
-            const aiResponse = res;
-
-            // AI 응답에 따라 게임 보드 업데이트
-            gameBoard = aiResponse.board;
-
-            // AI의 움직임을 게임 보드에 표시
-            for (let i = 0; i < 3; i++) {
-                for (let j = 0; j < 3; j++) {
-                    if (gameBoard[i][j] !== 0) {
-                        cells[i * 3 + j].innerText = gameBoard[i][j] === -1 ? 'O' : 'X';
-                    }
-                }
-            }
-            checkForWin();
-            displayMessage(aiResponse.message);
-            // 보드판 활성화
-            board.style.pointerEvents = 'auto';
-            hideLoadingIndicator();
-        });
-    }
-
-    /**
-     * 로딩 인디케이터를 표시합니다.
-     */
-    function showLoadingIndicator() {
-        loadingIndicator.style.display = 'flex';
-    }
-
-    /**
-     * 로딩 인디케이터를 숨깁니다.
-     */
-    function hideLoadingIndicator() {
-        loadingIndicator.style.display = 'none';
-    }
-
-    /**
-    * announceResult 함수는 게임의 승자를 전달받아서 화면에 결과 메시지를 표시하고 보드를 초기화합니다.
+    * showResult 함수는 게임의 승자를 전달받아서 화면에 결과 메시지를 표시하고 보드를 초기화합니다.
     * @param {string} winner - 게임의 승자 (user 또는 ai)
-    * @returns {void}
     */
-    function announceResult(winner) {
+    function showResult(winner) {
         let resultMessage;
 
         if (winner === user) {
@@ -250,16 +177,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-    * 점수판을 업데이트합니다.
-    */
-    function updateScoreboard() {
-        const playerScoreElement = document.getElementById('player-score-value');
-        const tieScoreElement = document.getElementById('tie-score-value');
-        const aiScoreElement = document.getElementById('ai-score-value');
-
-        playerScoreElement.innerText = playerScore;
-        tieScoreElement.innerText = tieScore;
-        aiScoreElement.innerText = aiScore;
+     * 게임 보드를 초기화합니다.
+     */
+    function resetBoard() {
+        localStorage.removeItem("conversation");
+        gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        cells.forEach(cell => {
+            cell.innerText = "";
+        });
+        currentPlayer = 'X';
+        gameEnded = false;
+        updateScoreboard();
     }
 
+    /**
+     * AI의 움직임을 실행합니다.
+     * @param {object} userAction - 사용자의 입력 정보
+     */
+    function makeAIMove(userAction) {
+        showLoadingIndicator();
+        gpt.sendToAI(userAction).then(res => {
+            // console.log(res);
+
+            //보드판 비활성화; AI응답시까지
+            board.style.pointerEvents = 'none';
+
+            const aiResponse = res;
+
+            // AI 응답에 따라 게임 보드 업데이트
+            gameBoard = aiResponse.board;
+
+            // AI의 움직임을 게임 보드에 표시
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (gameBoard[i][j] !== 0) {
+                        cells[i * 3 + j].innerText = gameBoard[i][j] === -1 ? 'O' : 'X';
+                    }
+                }
+            }
+            checkForWin();
+            displayMessage(aiResponse.message);
+            // 보드판 활성화
+            board.style.pointerEvents = 'auto';
+            hideLoadingIndicator();
+        });
+    }
 });
