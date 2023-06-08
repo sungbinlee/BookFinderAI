@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const user = 1;
     const ai = -1;
 
+    let playerScore = 0;
+    let tieScore = 0;
+    let aiScore = 0;
+
     /**
     * 게임 보드를 생성합니다.
     */
@@ -130,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * 비김을 알립니다.
      */
     function announceTie() {
+        tieScore++;
         const board = document.querySelector('.board');
         const tieMessage = document.createElement('div');
         tieMessage.classList.add('tie-message');
@@ -153,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         currentPlayer = 'X';
         gameEnded = false;
+        updateScoreboard();
     }
 
     /**
@@ -224,10 +230,12 @@ document.addEventListener('DOMContentLoaded', () => {
             resultMessage = document.createElement('div');
             resultMessage.classList.add('user-win-message');
             resultMessage.innerText = '승리';
+            playerScore++;
         } else {
             resultMessage = document.createElement('div');
             resultMessage.classList.add('ai-win-message');
             resultMessage.innerText = '패배';
+            aiScore++;
         }
 
         document.body.appendChild(resultMessage);
@@ -240,4 +248,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2000);
         }, 1000);
     }
+
+    /**
+    * 점수판을 업데이트합니다.
+    */
+    function updateScoreboard() {
+        const playerScoreElement = document.getElementById('player-score-value');
+        const tieScoreElement = document.getElementById('tie-score-value');
+        const aiScoreElement = document.getElementById('ai-score-value');
+
+        playerScoreElement.innerText = playerScore;
+        tieScoreElement.innerText = tieScore;
+        aiScoreElement.innerText = aiScore;
+    }
+
 });
