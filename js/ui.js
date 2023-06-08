@@ -1,5 +1,11 @@
 import { playerScore, tieScore, aiScore } from "./app.js";
 
+// 페이지 로드가 완료되면 프리로더를 숨깁니다.
+window.addEventListener('load', function () {
+    var preloader = document.querySelector('.preloader-wrapper');
+    preloader.style.display = 'none';
+});
+
 /**
  * 메시지를 화면에 표시합니다.
  * @param {string} message - 표시할 메시지
