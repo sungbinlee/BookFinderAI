@@ -1,8 +1,24 @@
 .message-board {
     margin-top: 20px;
-    width: 300px;
+    width: auto;
     padding: 10px;
     border: 1px solid #000;
-    background-color: #fff;
+    background-color: #000;
+    color: #0f0;
     text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: blink-caret 0.5s step-end infinite;
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #0f0;
+    }
 }

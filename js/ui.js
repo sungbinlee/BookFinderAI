@@ -12,13 +12,15 @@ window.addEventListener('load', function () {
  */
 export function displayMessage(message) {
     const messageBoard = document.querySelector('.message-board');
-    messageBoard.innerText = message;
+    typeMessage(message, messageBoard);
 }
 
 /**
  * 로딩 인디케이터를 표시합니다.
  */
 export function showLoadingIndicator() {
+    const messageBoard = document.querySelector('.message-board');
+    typeMessage("...", messageBoard);
     const loadingIndicator = document.querySelector('.loading-indicator');
     loadingIndicator.style.display = 'flex';
 }
@@ -42,4 +44,28 @@ export function updateScoreboard() {
     playerScoreElement.innerText = playerScore;
     tieScoreElement.innerText = tieScore;
     aiScoreElement.innerText = aiScore;
+}
+
+// 타이핑 애니메이션 효과 함수
+function typeMessage(message, element) {
+    const typingDelay = 100; // 각 글자가 출력되는 딜레이
+    const blinkDelay = 500; // 깜빡임 간격
+
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < message.length) {
+            element.textContent = message.substr(0, charIndex + 1);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        }
+    }
+
+    function blinkCursor() {
+        element.classList.toggle('blink');
+        setTimeout(blinkCursor, blinkDelay);
+    }
+
+    type();
+    blinkCursor();
 }
