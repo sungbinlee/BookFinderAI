@@ -63,3 +63,12 @@ function typeMessage(message, element) {
 
     type();
 }
+
+window.addEventListener('DOMContentLoaded', function () {
+    var crtElement = document.getElementById('crt');
+    if (window.innerWidth < 480) {
+        crtElement.style.filter = 'none'; // 모바일에서는 필터를 제거
+    } else {
+        crtElement.style.filter = 'url(#SphereMapTest)'; // 기본 필터 적용
+    }
+});
