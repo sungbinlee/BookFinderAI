@@ -48,6 +48,13 @@ h1.subtitle {
     right: 210px;
 }
 
+@media (max-width: 480px) {
+    h1.subtitle {
+        right: -20px;
+    }
+}
+
+
 .version-info {
     position: fixed;
     bottom: 10px;

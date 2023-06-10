@@ -1,3 +1,7 @@
+#monitor {
+    overflow: hidden;
+}
+
 #crt:before {
     content: " ";
     display: block;
@@ -48,4 +52,26 @@
     word-break: break-word;
     text-transform: uppercase;
     animation: textShadow 4s infinite;
+}
+
+/* CRT 효과를 최적화한 모바일 뷰 */
+@media (max-width: 480px) {
+    #screen {
+        width: 100%;
+        height: auto;
+        border: none;
+        border-image-source: none;
+        /* 가로 너비를 100%로 설정하여 모바일 화면에 맞게 조정 */
+        border-image-slice: none;
+    }
+}
+
+/* 터미널 내용의 스타일을 최적화한 모바일 뷰 */
+@media (max-width: 480px) {
+    .terminal {
+        padding: none;
+        /* 내부 패딩을 1rem으로 조정 */
+        animation: textShadow 2s infinite;
+        /* 애니메이션 시간을 2초로 조정 */
+    }
 }
