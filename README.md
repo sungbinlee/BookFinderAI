@@ -8,7 +8,7 @@ ChatGPT API를 활용한 인공지능 상대 틱택톡 게임입니다.
 # Changelog
 ## [1.3.0] - 2023-06-11
 -  1.3.0 버전 배포
-
+- Design Reference: Edwin. (2020). Retro CRT terminal screen in CSS + JS. DEV Community. https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh
 <img width="1920" alt="image" src="https://github.com/sungbinlee/TicTacToeWithGPT/assets/52542229/f98d9cba-db83-4b91-8ee7-666cf054c84b"> |
 ---|
 
