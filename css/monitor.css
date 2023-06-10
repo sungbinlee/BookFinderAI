@@ -1,0 +1,90 @@
+#monitor {
+    overflow: hidden;
+}
+
+#crt:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to bottom,
+            rgba(18, 16, 16, 0) 50%,
+            rgba(18, 18, 18, 0.25) 50%);
+    background-size: 100% 8px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.scanlineAnimation {
+    width: 100%;
+    height: 100px;
+    z-index: 8;
+    background: linear-gradient(0deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(255, 255, 255, 0.2) 10%,
+            rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 10s linear infinite;
+}
+
+.scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 8;
+    background: linear-gradient(0deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(255, 255, 255, 0.2) 10%,
+            rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+}
+
+#screen {
+    position: relative;
+    width: 800px;
+    height: auto;
+    border: 30px solid transparent;
+    border-image-source: url(/img/bezel.png);
+    border-image-slice: 30 fill;
+    border-image-outset: 0;
+    overflow: hidden;
+}
+
+.terminal {
+    position: relative;
+    height: 100%;
+    padding: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-break: break-word;
+    text-transform: uppercase;
+    animation: textShadow 4s infinite;
+}
+
+/* CRT 효과를 최적화한 모바일 뷰 */
+@media (max-width: 480px) {
+    #screen {
+        width: 100%;
+        height: auto;
+        border: none;
+        border-image-source: none;
+        /* 가로 너비를 100%로 설정하여 모바일 화면에 맞게 조정 */
+        border-image-slice: none;
+    }
+}
+
+/* 터미널 내용의 스타일을 최적화한 모바일 뷰 */
+@media (max-width: 480px) {
+    .terminal {
+        padding: none;
+        /* 내부 패딩을 1rem으로 조정 */
+        animation: textShadow 2s infinite;
+        /* 애니메이션 시간을 2초로 조정 */
+    }
+}

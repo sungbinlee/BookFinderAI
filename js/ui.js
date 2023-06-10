@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
  */
 export function displayMessage(message) {
     const messageBoard = document.querySelector('.message-board');
-    messageBoard.innerText = message;
+    typeMessage(message, messageBoard);
 }
 
 /**
@@ -43,3 +43,32 @@ export function updateScoreboard() {
     tieScoreElement.innerText = tieScore;
     aiScoreElement.innerText = aiScore;
 }
+
+/**
+* 문자 타이핑하는 함수
+*/
+function typeMessage(message, element) {
+    const typingDelay = 100; // 각 글자가 출력되는 딜레이
+    const blinkDelay = 500; // 깜빡임 간격
+
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < message.length) {
+            element.textContent = message.substr(0, charIndex + 1);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        }
+    }
+
+    type();
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+    var crtElement = document.getElementById('crt');
+    if (window.innerWidth < 480) {
+        crtElement.style.filter = 'none'; // 모바일에서는 필터를 제거
+    } else {
+        crtElement.style.filter = 'url(#SphereMapTest)'; // 기본 필터 적용
+    }
+});

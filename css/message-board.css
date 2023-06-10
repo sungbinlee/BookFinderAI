@@ -1,8 +1,26 @@
 .message-board {
     margin-top: 20px;
-    width: 300px;
+    width: 280px;
+    height: 38px;
     padding: 10px;
-    border: 1px solid #000;
-    background-color: #fff;
-    text-align: center;
+    border: 1px solid #0f0;
+    background-color: #000;
+    color: #0f0;
+    text-align: left;
+    overflow: hidden;
+    white-space: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.message-board:after {
+    content: "■";
+    animation: cursor 1s infinite;
+    animation-timing-function: step-end;
+    margin-left: 1px;
+}
+
+/* Inserts the > before terminal input */
+.message-board:before {
+    content: "> ";
 }

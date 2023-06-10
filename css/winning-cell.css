@@ -1,13 +1,3 @@
 .winning-cell {
     animation: highlight-cell 1s infinite alternate;
 }
-
-@keyframes highlight-cell {
-    0% {
-        background-color: yellow;
-    }
-
-    100% {
-        background-color: initial;
-    }
-}
