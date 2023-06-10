@@ -19,8 +19,6 @@ export function displayMessage(message) {
  * 로딩 인디케이터를 표시합니다.
  */
 export function showLoadingIndicator() {
-    const messageBoard = document.querySelector('.message-board');
-    typeMessage("...", messageBoard);
     const loadingIndicator = document.querySelector('.loading-indicator');
     loadingIndicator.style.display = 'flex';
 }
@@ -46,7 +44,9 @@ export function updateScoreboard() {
     aiScoreElement.innerText = aiScore;
 }
 
-// 타이핑 애니메이션 효과 함수
+/**
+* 타이핑 에니메이션 함수.
+*/
 function typeMessage(message, element) {
     const typingDelay = 100; // 각 글자가 출력되는 딜레이
     const blinkDelay = 500; // 깜빡임 간격
