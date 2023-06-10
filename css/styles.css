@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
 
-.theme-green {
-    --color: var(--green-color);
-    --bg: var(--green-bg);
-}
-
 body {
     display: flex;
     flex-direction: column;
