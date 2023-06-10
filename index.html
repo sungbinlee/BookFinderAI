@@ -26,9 +26,23 @@
     <div id="monitor">
         <!-- the rounded edge near the glass -->
         <div id="screen">
+            <div class="scanlineAnimation"></div>
             <!-- the overlay and horizontal pattern -->
-            <div id="crt">
+            <div id="crt" style="filter: url(#SphereMapTest)">
                 <div class="scanline"></div>
+                <div style=" display: none; position: absolute; top:-9999; z-index:0; visibility: hidden;">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-root"
+                        z-index="-1">
+                        <defs>
+                            <filter id="SphereMapTest" filterUnits="objectBoundingBox" x="-0.5" y="-1.1" width="2.0"
+                                height="3.5">
+                                <feImage id="mapa" result="Map" xlink:href="img/sphere_wide.png"></feImage>
+                                <feDisplacementMap id="despMap" in="SourceGraphic" in2="map" scale="100"
+                                    xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
                 <div class="terminal">
                     <header>
                         <h1 class="title">TIC-TAC-TOE</h1>
