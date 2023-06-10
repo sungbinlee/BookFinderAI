@@ -13,10 +13,11 @@
     justify-content: center;
     color: #edf2f7;
     font-size: 64px;
+    z-index: 2;
     border: 2px solid #edf2f7;
     cursor: pointer;
 }
 
 .cell:hover {
-    background-color: #edf2f7;
+    background-color: #a50b00;
 }
