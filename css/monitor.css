@@ -50,7 +50,7 @@
     width: 800px;
     height: auto;
     border: 30px solid transparent;
-    border-image-source: url(/img/bezel.png);
+    border-image-source: url(../img/bezel.png);
     border-image-slice: 30 fill;
     border-image-outset: 0;
     overflow: hidden;
