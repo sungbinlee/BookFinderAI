@@ -10,7 +10,7 @@
     font-size: 82px;
     font-weight: bold;
     color: #333;
-    background-color: rgba(199, 199, 199, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 9999;
     animation: fade-in 0.5s forwards, fade-out 0.5s;
     animation-delay: 0s, 2.5s;
@@ -28,7 +28,7 @@
     align-items: center;
     font-size: 82px;
     font-weight: bold;
-    background-color: rgba(199, 199, 199, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 9999;
     animation: fade-in 0.5s forwards, fade-out 0.5s;
     animation-delay: 0s, 2.5s;

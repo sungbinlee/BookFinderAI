@@ -45,7 +45,7 @@ export function updateScoreboard() {
 }
 
 /**
-* 타이핑 에니메이션 함수.
+* 문자 타이핑하는 함수
 */
 function typeMessage(message, element) {
     const typingDelay = 100; // 각 글자가 출력되는 딜레이
@@ -61,11 +61,5 @@ function typeMessage(message, element) {
         }
     }
 
-    function blinkCursor() {
-        element.classList.toggle('blink');
-        setTimeout(blinkCursor, blinkDelay);
-    }
-
     type();
-    blinkCursor();
 }
