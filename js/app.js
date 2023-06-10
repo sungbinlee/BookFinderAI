@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const board = document.querySelector('.board');
         const tieMessage = document.createElement('div');
         tieMessage.classList.add('tie-message');
-        tieMessage.innerText = '비겼습니다';
+        tieMessage.innerText = 'tie';
         board.appendChild(tieMessage);
 
         setTimeout(() => {
@@ -155,17 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (winner === user) {
             resultMessage = document.createElement('div');
-            resultMessage.classList.add('user-win-message');
-            resultMessage.innerText = '승리';
+            resultMessage.classList.add('afterend', 'user-win-message');
+            resultMessage.innerText = 'victory';
             playerScore++;
         } else {
             resultMessage = document.createElement('div');
             resultMessage.classList.add('ai-win-message');
-            resultMessage.innerText = '패배';
+            resultMessage.innerText = 'defeat';
             aiScore++;
         }
 
-        document.body.appendChild(resultMessage);
+        const messageBoard = document.querySelector('.message-board');
+        messageBoard.appendChild(resultMessage);
 
         setTimeout(() => {
             resultMessage.classList.add('fade-out');
