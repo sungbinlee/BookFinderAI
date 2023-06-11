@@ -48,7 +48,7 @@
 #screen {
     position: relative;
     width: 800px;
-    height: auto;
+    height: 670px;
     border: 30px solid transparent;
     border-image-source: url(../img/bezel.png);
     border-image-slice: 30 fill;
@@ -84,7 +84,5 @@
     .terminal {
         padding: none;
         /* 내부 패딩을 1rem으로 조정 */
-        animation: textShadow 2s infinite;
-        /* 애니메이션 시간을 2초로 조정 */
     }
 }

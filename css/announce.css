@@ -9,7 +9,7 @@
     align-items: center;
     font-size: 82px;
     font-weight: bold;
-    color: #333;
+    color: yellow;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 9999;
     animation: fade-in 0.5s forwards, fade-out 0.5s;
@@ -35,9 +35,9 @@
 }
 
 .user-win-message {
-    color: rgb(205, 51, 51);
+    color: red
 }
 
 .ai-win-message {
-    color: rgb(45, 45, 176);
+    color: blue
 }
