@@ -23,7 +23,7 @@ header {
 
 h1.title {
     color: #edf2f7;
-    font-size: 62px;
+    font-size: 64px;
     font-family: "VT323", monospace;
     text-transform: uppercase;
     position: relative;
@@ -35,7 +35,7 @@ h1.title:hover {
 }
 
 h1.subtitle {
-    font-size: 24px;
+    font-size: 26px;
     color: #0f0;
     transform: rotate(8deg);
     position: absolute;
