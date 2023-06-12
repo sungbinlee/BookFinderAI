@@ -23,11 +23,12 @@ header {
 
 h1.title {
     color: #edf2f7;
-    font-size: 64px;
+    font-size: 4.125rem;
     font-family: "VT323", monospace;
     text-transform: uppercase;
     position: relative;
     z-index: 2;
+    margin-bottom: 20px;
 }
 
 h1.title:hover {

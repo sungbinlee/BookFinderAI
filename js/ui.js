@@ -20,6 +20,9 @@ export function displayMessage(message) {
  */
 export function showLoadingIndicator() {
     const loadingIndicator = document.querySelector('.loading-indicator');
+    const messageBoard = document.querySelector('.message-board');
+    typeMessage("통신중...", messageBoard);
+
     loadingIndicator.style.display = 'flex';
 }
 
