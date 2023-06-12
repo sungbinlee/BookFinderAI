@@ -1,16 +1,16 @@
 # TicTacToeWithChatGPT
-## 🔗 배포링크: https://sungbinlee.github.io/TicTacToeWithGPT/ 
+## 🔗 Deployment: https://sungbinlee.github.io/TicTacToeWithGPT/ 
 ## 💡 Overview
 TicTacToeWithChatGPT은 ChatGPT API를 활용한 인공지능 상대 틱택토 게임입니다. 사용자와 AI 간의 턴 기반 게임을 제공하며, AI는 ChatGPT를 통해 동작합니다. 이 게임은 웹 페이지로 구현되어 있고, 사용자는 HTML 인터페이스를 통해 게임 보드에 입력을 하고 AI와 대화할 수 있습니다.
 ### TicTacToeWithChatGPT의 개발에는 다음과 같은 개발 스택이 사용되었습니다:
 
 1. Front-end:
-- HTML
-- CSS
-- JavaScript
+    - HTML
+    - CSS
+    - JavaScript
 
 2. AI 및 자연어 처리:
-- OpenAI ChatGPT API: 인공지능 모델과의 대화를 처리하기 위한 API입니다. 사용자와 AI 간의 대화를 처리하고 AI의 응답을 받아올 수 있습니다.
+    - OpenAI ChatGPT API: 인공지능 모델과의 대화를 처리하기 위한 API입니다. 사용자와 AI 간의 대화를 처리하고 AI의 응답을 받아올 수 있습니다.
 위의 개발 스택을 활용하여 TicTacToeWithChatGPT를 구현했습니다. 
 
 HTML, CSS, JavaScript를 사용하여 웹 페이지의 구조, 스타일, 동적인 기능을 구현했고, OpenAI ChatGPT API를 통해 AI와의 상호작용을 처리했습니다. 이를 통해 사용자는 웹 브라우저에서 게임을 플레이하고 AI와 대화할 수 있는 틱택토 게임을 즐길 수 있습니다.
@@ -54,6 +54,9 @@ HTML, CSS, JavaScript를 통해 웹 페이지를 구성하고, ChatGPT와의 상
 
 이 아키텍처를 사용하여 AI가 사용자와 틱택토 게임을 진행하고, 게임의 결과를 알려주는 대화 시나리오가 구현됩니다.
 
+## 😊 Acknowledgments
+TicTacToeWithChatGPT 는 인공지능 기반 대화형 인터페이스와 전통적인 게임을 결합한 아이디어에서 영감을 받았습니다. 웹 개발과 ChatGPT의 통합을 통해 인터랙티브하고 매력적인 게임 경험을 제공하는 방법을 보여주기 위해 만들어졌습니다. TicTacToeWithChatGPT를 개발하는 데에는 많은 도움을 받은 자료들이 있습니다. 특히, Edwin의 "Retro CRT terminal screen in CSS + JS" 글([참조: 링크](https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh))은 게임 인터페이스의 일부로 사용한 레트로 CRT 터미널 스타일을 구현하는 데에 큰 영감을 주었습니다. 이 자료에 공유해주신 Edwin에게 감사의 인사를 전합니다.
+
 ##  📒 Changelog
 - 마이너 버전이 업데이트될 때마다 개발 과정을 기록하고 변경 사항을 설명하는 로그입니다. 
 - 각 버전 변경 로그에는 해당 버전의 주요 업데이트를 시각적으로 나타내기 위한 이미지도 포함되어 있습니다. 이 이미지는 해당 버전에서 추가된 기능이나 UI 개선 사항을 시각적으로 보여주는 스크린샷입니다.
@@ -64,7 +67,7 @@ HTML, CSS, JavaScript를 통해 웹 페이지를 구성하고, ChatGPT와의 상
 
 <img width="1920" alt="image" src="https://github.com/sungbinlee/TicTacToeWithGPT/assets/52542229/f98d9cba-db83-4b91-8ee7-666cf054c84b"> |
 ---|
-[Reference] Edwin. (2020). Retro CRT terminal screen in CSS + JS. DEV Community. https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh
+[Reference] Edwin. (2020). Retro CRT terminal screen in CSS + JS. DEV Community. ([참조: 링크](https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh))
 
 ### [1.2.0] - 2023-06-08
 -  1.2.0 버전 배포
