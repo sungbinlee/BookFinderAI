@@ -1,4 +1,4 @@
-import { playerScore, tieScore, aiScore } from "./app.js";
+import { playerScore, tieScore, aiScore, isMuted } from "./app.js";
 
 let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
 
@@ -88,8 +88,14 @@ let gameStart = document.querySelector('.game-start');
 let menu = document.querySelector('.menu');
 let title = document.querySelector('.title');
 
+const btn = new Audio('../asset/audio/btn.m4a');
+
+
 title.addEventListener('click', function (e) {
     e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
     game.style.display = 'none';
     menu.style.display = 'block';
     title.classList.remove('animation');
@@ -97,6 +103,9 @@ title.addEventListener('click', function (e) {
 
 gameStart.addEventListener('click', function (e) {
     e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
     game.style.display = 'block';
     menu.style.display = 'none';
     title.classList.toggle('animation');
@@ -104,12 +113,18 @@ gameStart.addEventListener('click', function (e) {
 
 gameRulesLink.addEventListener('click', function (e) {
     e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
     gameRulesContainer.classList.toggle('show');
     gameMenu.style.display = 'none';
 });
 
 backButton.addEventListener('click', function (e) {
     e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
     gameMenu.style.display = 'block';
     gameRulesContainer.classList.remove('show');
 });

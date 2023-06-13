@@ -50,7 +50,7 @@
     width: 800px;
     height: 670px;
     border: 30px solid transparent;
-    border-image-source: url(../img/bezel.png);
+    border-image-source: url(../asset/img/bezel.png);
     border-image-slice: 30 fill;
     border-image-outset: 0;
     overflow: hidden;
@@ -70,6 +70,29 @@
     word-break: break-word;
     text-transform: uppercase;
     animation: textShadow 4s infinite;
+}
+
+/* styles.css 파일 내부 */
+
+.mute-button-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.mute-button-wrapper i {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.fa-volume-xmark {
+    display: none;
+}
+
+.fa-volume-high {
+    display: block;
 }
 
 /* CRT 효과를 최적화한 모바일 뷰 */

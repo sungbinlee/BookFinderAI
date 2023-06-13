@@ -6,6 +6,9 @@ export let playerScore = 0;
 export let tieScore = 0;
 export let aiScore = 0;
 
+// 음소거 여부를 나타내는 변수
+export let isMuted = false;
+
 /**
  * 게임 보드에서 사용자의 클릭 이벤트를 처리하여 게임 진행을 제어합니다.
  */
@@ -21,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const user = 1;
     const ai = -1;
 
+    // 사운드 재생용 요소 생성
+    const turnX = new Audio('../asset/audio/x.m4a');
+    const turnO = new Audio('../asset/audio/o.m4a');
+    const victorySound = new Audio('../asset/audio/victory.m4a');
+    const defeatSound = new Audio('../asset/audio/defeat.m4a');
+    const tieSound = new Audio('../asset/audio/tie.m4a');
+
     /**
     * 게임 보드를 생성합니다.
     */
@@ -30,11 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.classList.add('cell');
             cell.addEventListener('click', () => {
                 if (!gameEnded && gameBoard[i][j] === 0) {
+                    if (!isMuted) {
+                        currentPlayer === 'X' ? turnX.play() : turnO.play();
+                    }
                     cell.innerText = currentPlayer;
                     gameBoard[i][j] = user;
                     checkForWin();
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-
                     const userAction = {
                         role: 'user',
                         content: `User INPUT: action: start, board:${JSON.stringify(gameBoard)}.`
@@ -133,6 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
      * 비김을 알립니다.
      */
     function announceTie() {
+        if (!isMuted) {
+            tieSound.play();
+        }
         tieScore++;
         const board = document.querySelector('.board');
         const tieMessage = document.createElement('div');
@@ -154,11 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let resultMessage;
 
         if (winner === user) {
+            if (!isMuted) {
+                victorySound.play();
+            }
             resultMessage = document.createElement('div');
             resultMessage.classList.add('afterend', 'user-win-message');
             resultMessage.innerText = 'victory';
             playerScore++;
         } else {
+            if (!isMuted) {
+                defeatSound.play();
+            }
             resultMessage = document.createElement('div');
             resultMessage.classList.add('ai-win-message');
             resultMessage.innerText = 'defeat';
@@ -212,6 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < 3; i++) {
                 for (let j = 0; j < 3; j++) {
                     if (gameBoard[i][j] !== 0) {
+                        if (!isMuted) {
+                            turnO.play();
+                        }
                         cells[i * 3 + j].innerText = gameBoard[i][j] === -1 ? 'O' : 'X';
                     }
                 }
@@ -223,4 +247,23 @@ document.addEventListener('DOMContentLoaded', () => {
             hideLoadingIndicator();
         });
     }
+
+    let muteButtonWrapper = document.querySelector('.mute-button-wrapper');
+    let muteButtonHigh = document.querySelector('.fa-volume-high');
+    let muteButtonXMark = document.querySelector('.fa-volume-xmark');
+    // 음소거 기능
+    muteButtonWrapper.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log(isMuted);
+        isMuted = !isMuted; // 음소거 상태 변경
+        if (isMuted) {
+            muteButtonHigh.style.display = 'none';
+            muteButtonXMark.style.display = 'block';
+        } else {
+            muteButtonHigh.style.display = 'block';
+            muteButtonXMark.style.display = 'none';
+        }
+    });
+
 });
+

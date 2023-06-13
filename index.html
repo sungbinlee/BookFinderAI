@@ -17,18 +17,18 @@
     <link rel="stylesheet" href="./css/score-board.css">
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/animations.css">
+    <script src="https://kit.fontawesome.com/d9652f9e31.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="preloader-wrapper">
         <div class="preloader"></div>
     </div>
-
     <div id="monitor">
-        <!-- the rounded edge near the glass -->
+        <!-- 테두리 -->
         <div id="screen">
             <div class="scanlineAnimation"></div>
-            <!-- the overlay and horizontal pattern -->
+            <!-- 렌즈효과 오버레이 -->
             <div id="crt" style="filter: url(#SphereMapTest)">
                 <div class="scanline"></div>
                 <div style=" display: none; position: absolute; top:-9999; z-index:0; visibility: hidden;">
@@ -45,11 +45,18 @@
                     </svg>
                 </div>
                 <div class="terminal">
+                    <!-- 음소거 스피커 -->
+                    <div class="mute-button-wrapper">
+                        <i class="fa-solid fa-volume-high" style="color: #ffffff;"></i>
+                        <i class="fa-solid fa-volume-xmark" style="color: #ffffff; display: none;"></i>
+                    </div>
+                    <!-- 헤더 -->
                     <header>
                         <h1 class="title">TIC-TAC-TOE</h1>
                         <h1 class="subtitle">with ChatGPT</h1>
                     </header>
                     <main>
+                        <!-- 메뉴 -->
                         <div class="menu">
                             <div class="white-box">
                                 <div class="game-menu">
@@ -74,6 +81,7 @@
                                         class="github-icon"></a>
                             </div>
                         </div>
+                        <!-- 게임판 -->
                         <div class="game">
                             <section class="board"></section>
                             <div class="message-board"></div>
