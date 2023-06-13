@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ai = -1;
 
     // 사운드 재생용 요소 생성
-    const turnX = new Audio('../asset/audio/x.m4a');
-    const turnO = new Audio('../asset/audio/o.m4a');
-    const victorySound = new Audio('../asset/audio/victory.m4a');
-    const defeatSound = new Audio('../asset/audio/defeat.m4a');
-    const tieSound = new Audio('../asset/audio/tie.m4a');
+    const turnX = new Audio('../assets/audio/x.m4a');
+    const turnO = new Audio('../assets/audio/o.m4a');
+    const victorySound = new Audio('../assets/audio/victory.m4a');
+    const defeatSound = new Audio('../assets/audio/defeat.m4a');
+    const tieSound = new Audio('../assets/audio/tie.m4a');
 
     /**
     * 게임 보드를 생성합니다.

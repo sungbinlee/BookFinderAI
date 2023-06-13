@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
 
+@import './components/animations.css';
+@import './components/announce.css';
+@import './components/board.css';
+@import './components/loading-indicator.css';
+@import './components/menu.css';
+@import './components/monitor.css';
+@import './components/winning-cell.css';
+@import './components/message-board.css';
+@import './components/score-board.css';
+
 body {
     display: flex;
     flex-direction: column;

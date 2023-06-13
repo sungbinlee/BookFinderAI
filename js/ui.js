@@ -88,7 +88,7 @@ let gameStart = document.querySelector('.game-start');
 let menu = document.querySelector('.menu');
 let title = document.querySelector('.title');
 
-const btn = new Audio('../asset/audio/btn.m4a');
+const btn = new Audio('../assets/audio/btn.m4a');
 
 
 title.addEventListener('click', function (e) {
