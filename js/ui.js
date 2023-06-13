@@ -1,5 +1,7 @@
 import { playerScore, tieScore, aiScore } from "./app.js";
 
+let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
+
 // 페이지 로드가 완료되면 프리로더를 숨깁니다.
 window.addEventListener('load', function () {
     var preloader = document.querySelector('.preloader-wrapper');
@@ -19,6 +21,7 @@ export function displayMessage(message) {
  * 로딩 인디케이터를 표시합니다.
  */
 export function showLoadingIndicator() {
+    clearTimeout(typingTimeout);
     const loadingIndicator = document.querySelector('.loading-indicator');
     const messageBoard = document.querySelector('.message-board');
     typeMessage("통신중...", messageBoard);
@@ -52,7 +55,6 @@ export function updateScoreboard() {
 */
 function typeMessage(message, element) {
     const typingDelay = 100; // 각 글자가 출력되는 딜레이
-    const blinkDelay = 500; // 깜빡임 간격
 
     let charIndex = 0;
 
@@ -60,7 +62,7 @@ function typeMessage(message, element) {
         if (charIndex < message.length) {
             element.textContent = message.substr(0, charIndex + 1);
             charIndex++;
-            setTimeout(type, typingDelay);
+            typingTimeout = setTimeout(type, typingDelay);
         }
     }
 
