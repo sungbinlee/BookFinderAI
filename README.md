@@ -17,8 +17,45 @@ HTML, CSS, JavaScript를 사용하여 웹 페이지의 구조, 스타일, 동적
 
 ## 🏰 Architecture
 
-<img width="579" alt="image" src="https://github.com/sungbinlee/TicTacToeWithGPT/assets/52542229/63153d97-fa98-4b7e-af80-48e304338032"> |
----|
+```
+.
+├── README.md
+├── assets
+│   ├── audio
+│   │   ├── btn.m4a
+│   │   ├── defeat.m4a
+│   │   ├── o.m4a
+│   │   ├── tie.m4a
+│   │   ├── victory.m4a
+│   │   └── x.m4a
+│   ├── font
+│   └── img
+│       ├── bezel.png
+│       ├── favicon.ico
+│       ├── github-logo.png
+│       ├── sphere_wide.png
+│       ├── volume-high.png
+│       └── volume-xmark.png
+├── css
+│   ├── components
+│   │   ├── animations.css
+│   │   ├── announce.css
+│   │   ├── board.css
+│   │   ├── loading-indicator.css
+│   │   ├── menu.css
+│   │   ├── message-board.css
+│   │   ├── monitor.css
+│   │   ├── score-board.css
+│   │   └── winning-cell.css
+│   └── styles.css
+├── index.html
+└── js
+    ├── app.js
+    ├── chatgpt-interface.js
+    ├── conversation.js
+    ├── kit.fontawesome.com_d9652f9e31.js
+    └── ui.js
+```
 - HTML 파일: 웹 페이지의 구조와 레이아웃을 정의합니다. 게임 보드, 메시지 패널, 스코어 보드 등의 요소가 포함되어 있습니다.
 - CSS 파일: 웹 페이지의 스타일을 정의합니다. 게임 보드, 메시지 패널, 애니메이션 등의 스타일링을 담당합니다.
 - chatgpt-interface.js 파일: ChatGPT와의 상호 작용을 담당하는 JavaScript 파일입니다. AI와의 대화를 처리하는 sendToAI 함수가 구현되어 있습니다. 사용자의 입력을 AI로 전송하고 AI의 응답을 받아오는 기능을 제공합니다.
@@ -61,6 +98,12 @@ TicTacToeWithChatGPT 는 인공지능 기반 대화형 인터페이스와 전통
 - 마이너 버전이 업데이트될 때마다 개발 과정을 기록하고 변경 사항을 설명하는 로그입니다. 
 - 각 버전 변경 로그에는 해당 버전의 주요 업데이트를 시각적으로 나타내기 위한 이미지도 포함되어 있습니다. 이 이미지는 해당 버전에서 추가된 기능이나 UI 개선 사항을 시각적으로 보여주는 스크린샷입니다.
 - 이 로그와 통해 개발 과정을 추적하고 함께 스크린샷을 제공함으로써 변경 사항을 시각적으로 전달하며, 사용자들에게 프로젝트의 진행 상황을 더 잘 이해할 수 있도록 도움을 주는 것이 목적입니다.
+
+### [1.4.0] - 2023-06-13
+-  1.4.0 버전 배포
+
+<img width="1919" alt="image" src="https://github.com/sungbinlee/TicTacToeWithGPT/assets/52542229/804cbbeb-2560-4e25-b6f1-3aa9deb2db68"> |
+---|
 
 ### [1.3.0] - 2023-06-11
 -  1.3.0 버전 배포
