@@ -28,7 +28,6 @@ HTML, CSS, JavaScript를 사용하여 웹 페이지의 구조, 스타일, 동적
 │   │   ├── tie.m4a
 │   │   ├── victory.m4a
 │   │   └── x.m4a
-│   ├── font
 │   └── img
 │       ├── bezel.png
 │       ├── favicon.ico
@@ -53,7 +52,6 @@ HTML, CSS, JavaScript를 사용하여 웹 페이지의 구조, 스타일, 동적
     ├── app.js
     ├── chatgpt-interface.js
     ├── conversation.js
-    ├── kit.fontawesome.com_d9652f9e31.js
     └── ui.js
 ```
 - HTML 파일: 웹 페이지의 구조와 레이아웃을 정의합니다. 게임 보드, 메시지 패널, 스코어 보드 등의 요소가 포함되어 있습니다.
