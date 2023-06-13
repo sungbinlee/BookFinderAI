@@ -227,7 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
             board.style.pointerEvents = 'none';
 
             if (res === -1) {
-                displayMessage('챗지피티로부터 잘못된 응답을 받았습니다. 다시 시작합니다.')
+                displayMessage("잘못된 응답을 받았습니다'(×_×;)'게임을 다시 시작합니다.")
+                hideLoadingIndicator();
                 resetBoard();
                 return 0;
             }
