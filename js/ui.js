@@ -70,10 +70,46 @@ function typeMessage(message, element) {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-    var crtElement = document.getElementById('crt');
+    const crtElement = document.getElementById('crt');
     if (window.innerWidth < 480) {
         crtElement.style.filter = 'none'; // 모바일에서는 필터를 제거
     } else {
         crtElement.style.filter = 'url(#SphereMapTest)'; // 기본 필터 적용
     }
+});
+
+
+let gameRulesLink = document.querySelector('.game-rules-link');
+let gameRulesContainer = document.querySelector('.game-rules-container');
+let backButton = document.querySelector('.back-button');
+let gameMenu = document.querySelector('.game-menu');
+let game = document.querySelector('.game');
+let gameStart = document.querySelector('.game-start');
+let menu = document.querySelector('.menu');
+let title = document.querySelector('.title');
+
+title.addEventListener('click', function (e) {
+    e.preventDefault();
+    game.style.display = 'none';
+    menu.style.display = 'block';
+    title.classList.remove('animation');
+});
+
+gameStart.addEventListener('click', function (e) {
+    e.preventDefault();
+    game.style.display = 'block';
+    menu.style.display = 'none';
+    title.classList.toggle('animation');
+});
+
+gameRulesLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    gameRulesContainer.classList.toggle('show');
+    gameMenu.style.display = 'none';
+});
+
+backButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    gameMenu.style.display = 'block';
+    gameRulesContainer.classList.remove('show');
 });

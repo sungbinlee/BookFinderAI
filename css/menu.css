@@ -1,0 +1,155 @@
+/* 흰색 박스 스타일 */
+.white-box {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid white;
+
+}
+
+/* 게임 시작 및 게임 방법 스타일 */
+.white-box a {
+    display: block;
+    margin-top: 1rem;
+    width: 15rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+/* 깜빡이는 텍스트 스타일 */
+.blinking-text {
+    position: relative;
+    display: inline-block;
+}
+
+.blinking-text:before {
+    content: "■ ";
+    margin-left: 1px;
+}
+
+.blinking-text:hover {
+    animation: blink 1s infinite;
+}
+
+/* 크레딧 스타일 */
+.credits {
+
+    color: #0f0;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.credit-text a {
+    color: #0f0;
+    text-decoration: none;
+}
+
+.credit-text a:hover {
+    text-decoration: underline;
+}
+
+.game {
+    display: none;
+}
+
+/* 게임 규칙 스타일 */
+.game-rules {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    text-align: left;
+}
+
+/* 플레이어 표시 스타일 */
+.player-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.game-rules-container {
+    color: white;
+    display: none;
+}
+
+.game-rules-container.show {
+    display: block;
+}
+
+.back-button {
+    display: none;
+}
+
+.game-rules-container.show .back-button {
+    display: inline-block;
+}
+
+.game.show .h1 {
+    display: inline-block;
+}
+
+.github-link {
+    display: inline-block;
+}
+
+.github-icon {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(200%);
+    width: 28px;
+    height: 28px;
+}
+
+.github-icon-a:hover {
+    animation: blink 1s infinite;
+}
+
+/* //터치 영역 증가 */
+.back-button::after {
+    content: "";
+    position: absolute;
+    transform: translate(-100%, -30%);
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    /* border: 1px dashed #ccc; 가상 요소 영역을 표시하기 위한 용도로 실제로는 필요 없음 */
+    /* background-color: rgba(255,0,0,0.1); 가상 요소 영역을 표시하기 위한 용도로 실제로는 필요 없음 */
+}
+
+.game-rules-link::after {
+    content: "";
+    position: absolute;
+    transform: translate(-95%, -30%);
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.game-start::after {
+    content: "";
+    position: absolute;
+    transform: translate(-95%, -30%);
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.github-icon-a::after {
+    content: "";
+    position: absolute;
+    transform: translate(-80%, -20%);
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    /* border: 1px dashed #ccc;
+    background-color: rgba(255, 0, 0, 0.1); */
+}
