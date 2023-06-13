@@ -1,4 +1,6 @@
-import { playerScore, tieScore, aiScore } from "./app.js";
+import { playerScore, tieScore, aiScore, isMuted } from "./app.js";
+
+let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
 
 // 페이지 로드가 완료되면 프리로더를 숨깁니다.
 window.addEventListener('load', function () {
@@ -19,6 +21,7 @@ export function displayMessage(message) {
  * 로딩 인디케이터를 표시합니다.
  */
 export function showLoadingIndicator() {
+    clearTimeout(typingTimeout);
     const loadingIndicator = document.querySelector('.loading-indicator');
     const messageBoard = document.querySelector('.message-board');
     typeMessage("통신중...", messageBoard);
@@ -52,7 +55,6 @@ export function updateScoreboard() {
 */
 function typeMessage(message, element) {
     const typingDelay = 100; // 각 글자가 출력되는 딜레이
-    const blinkDelay = 500; // 깜빡임 간격
 
     let charIndex = 0;
 
@@ -60,7 +62,7 @@ function typeMessage(message, element) {
         if (charIndex < message.length) {
             element.textContent = message.substr(0, charIndex + 1);
             charIndex++;
-            setTimeout(type, typingDelay);
+            typingTimeout = setTimeout(type, typingDelay);
         }
     }
 
@@ -68,10 +70,61 @@ function typeMessage(message, element) {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-    var crtElement = document.getElementById('crt');
+    const crtElement = document.getElementById('crt');
     if (window.innerWidth < 480) {
         crtElement.style.filter = 'none'; // 모바일에서는 필터를 제거
     } else {
         crtElement.style.filter = 'url(#SphereMapTest)'; // 기본 필터 적용
     }
+});
+
+
+let gameRulesLink = document.querySelector('.game-rules-link');
+let gameRulesContainer = document.querySelector('.game-rules-container');
+let backButton = document.querySelector('.back-button');
+let gameMenu = document.querySelector('.game-menu');
+let game = document.querySelector('.game');
+let gameStart = document.querySelector('.game-start');
+let menu = document.querySelector('.menu');
+let title = document.querySelector('.title');
+
+const btn = new Audio('../assets/audio/btn.m4a');
+
+
+title.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
+    game.style.display = 'none';
+    menu.style.display = 'block';
+    title.classList.remove('animation');
+});
+
+gameStart.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
+    game.style.display = 'block';
+    menu.style.display = 'none';
+    title.classList.toggle('animation');
+});
+
+gameRulesLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
+    gameRulesContainer.classList.toggle('show');
+    gameMenu.style.display = 'none';
+});
+
+backButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!isMuted) {
+        btn.play();
+    }
+    gameMenu.style.display = 'block';
+    gameRulesContainer.classList.remove('show');
 });

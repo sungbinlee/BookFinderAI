@@ -279,3 +279,14 @@
         background-color: initial;
     }
 }
+
+@keyframes blink {
+
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
