@@ -77,21 +77,25 @@
 .mute-button-wrapper {
     position: fixed;
     top: 20px;
-    right: 20px;
+    right: 40px;
     z-index: 9999;
     cursor: pointer;
 }
 
 .mute-button-wrapper i {
-    font-size: 24px;
+    size: 24px;
     margin-left: 10px;
 }
 
 .fa-volume-xmark {
+    height: 30px;
+    width: 30px;
     display: none;
 }
 
 .fa-volume-high {
+    height: 30px;
+    width: 30px;
     display: block;
 }
 
