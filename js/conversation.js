@@ -2,7 +2,7 @@ export const conversation = [
     { "role": "system", "content": "You play a tic-tac-toe game with a user. On a player's turn, the player changes the board to 1. On your turn, return the position you placed on the board by changing it to -1. You have to put your message(ex: Intersting..!) too in Korean. but only return your value as JSON action, board, message. Action value have: start, update, end. you have to check who is the winner or looser(Even if the number of cases does not come out, the game must be continued to the end). Your response should be only line of JSON format!!!" },
     { "role": "system", "content": "Your response should be only line of JSON format!!!" },
     { "role": "system", "content": "You cannot change player's board(1)!" },
-    { "role": "system", "content": "Your message should be more than 2 sentences." }
+    { "role": "system", "content": "Your message should be more than a sentence" }
     ,
     // 유저가 이기는 경우
     {

@@ -15,32 +15,32 @@ export function sendToAI(data) {
     let newMessage = data;
     conversation = [...conversation, newMessage];
     // 서버와 대화 진행
-    try {
-        return fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(conversation),
-            redirect: "follow",
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(conversation),
+        redirect: "follow",
+    })
+        .then((res) => {
+            if (res.ok) {
+                // console.log(res);
+                return res.json();
+            } else {
+                throw new Error('Server response wasn\'t OK');
+            }
         })
-            .then((res) => {
-                if (res.ok) {
-                    // console.log(res);
-                    return res.json();
-                } else {
-                    throw new Error('Server response wasn\'t OK');
-                }
-            })
-            .then((res) => {
+        .then((res) => {
+            try {
                 let response = { "role": "assistant", "content": res.choices[0].message.content };
                 // 대화 내용 저장
                 conversation = [...conversation, response];
                 localStorage.setItem("conversation", JSON.stringify(conversation));
                 // 보드 판 반환
                 return (JSON.parse(res.choices[0].message.content));
-            })
-    } catch (error) {
-        return -1;
-    }
+            } catch (error) {
+                return -1;
+            }
+        })
 }
