@@ -1,5 +1,5 @@
 import * as gpt from "./chatgpt-interface.js";
-import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage } from "./ui.js"
+import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage, typingTimeout } from "./ui.js"
 
 // 점수판
 export let playerScore = 0;
@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * 비김을 알립니다.
      */
     function announceTie() {
+        clearTimeout(typingTimeout);
         if (!isMuted) {
             tieSound.play();
         }
@@ -166,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     * @param {string} winner - 게임의 승자 (user 또는 ai)
     */
     function showResult(winner) {
+        clearTimeout(typingTimeout);
         let resultMessage;
 
         if (winner === user) {
