@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ai = -1;
 
     // 사운드 재생용 요소 생성
-    const turnX = new Audio('../assets/audio/x.m4a');
-    const turnO = new Audio('../assets/audio/o.m4a');
-    const victorySound = new Audio('../assets/audio/victory.m4a');
-    const defeatSound = new Audio('../assets/audio/defeat.m4a');
-    const tieSound = new Audio('../assets/audio/tie.m4a');
+    const turnX = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/x.m4a');
+    const turnO = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/o.m4a');
+    const victorySound = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/victory.m4a');
+    const defeatSound = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/defeat.m4a');
+    const tieSound = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/tie.m4a');
 
     /**
     * 게임 보드를 생성합니다.
@@ -254,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 음소거 기능
     muteButtonWrapper.addEventListener('click', function (e) {
         e.preventDefault();
-        console.log(isMuted);
         isMuted = !isMuted; // 음소거 상태 변경
         if (isMuted) {
             muteButtonHigh.style.display = 'none';
