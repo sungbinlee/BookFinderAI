@@ -224,6 +224,12 @@ document.addEventListener('DOMContentLoaded', () => {
             //보드판 비활성화; AI응답시까지
             board.style.pointerEvents = 'none';
 
+            if (res === -1) {
+                displayMessage('챗지피티로부터 잘못된 응답을 받았습니다. 다시 시작합니다.')
+                resetBoard();
+                return 0;
+            }
+
             const aiResponse = res;
 
             // AI 응답에 따라 게임 보드 업데이트
