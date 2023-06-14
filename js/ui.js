@@ -4,7 +4,7 @@ let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
 
 // 페이지 로드가 완료되면 프리로더를 숨깁니다.
 window.addEventListener('load', function () {
-    var preloader = document.querySelector('.preloader-wrapper');
+    const preloader = document.querySelector('.preloader-wrapper');
     preloader.style.display = 'none';
 });
 
