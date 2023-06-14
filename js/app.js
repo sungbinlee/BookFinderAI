@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let muteButtonWrapper = document.querySelector('.mute-button-wrapper');
     let muteButtonHigh = document.querySelector('.fa-volume-high');
     let muteButtonXMark = document.querySelector('.fa-volume-xmark');
+
     // 음소거 기능
     muteButtonWrapper.addEventListener('click', function (e) {
         e.preventDefault();

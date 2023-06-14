@@ -55,7 +55,6 @@ function updateScoreboard() {
 */
 function typeMessage(message, element) {
     const typingDelay = 100; // 각 글자가 출력되는 딜레이
-
     let charIndex = 0;
 
     function type() {
@@ -69,6 +68,7 @@ function typeMessage(message, element) {
     type();
 }
 
+// 모바일뷰 최적화
 window.addEventListener('DOMContentLoaded', function () {
     const crtElement = document.getElementById('crt');
     if (window.innerWidth < 480) {
@@ -89,7 +89,6 @@ let menu = document.querySelector('.menu');
 let title = document.querySelector('.title');
 
 const btn = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/btn.m4a');
-
 
 title.addEventListener('click', function (e) {
     e.preventDefault();
