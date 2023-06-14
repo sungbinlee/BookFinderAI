@@ -1,6 +1,6 @@
 import { playerScore, tieScore, aiScore, isMuted } from "./app.js";
 
-export let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
+let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
 
 // 페이지 로드가 완료되면 프리로더를 숨깁니다.
 window.addEventListener('load', function () {
@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
  * 메시지를 화면에 표시합니다.
  * @param {string} message - 표시할 메시지
  */
-export function displayMessage(message) {
+function displayMessage(message) {
     const messageBoard = document.querySelector('.message-board');
     typeMessage(message, messageBoard);
 }
@@ -20,7 +20,7 @@ export function displayMessage(message) {
 /**
  * 로딩 인디케이터를 표시합니다.
  */
-export function showLoadingIndicator() {
+function showLoadingIndicator() {
     clearTimeout(typingTimeout);
     const loadingIndicator = document.querySelector('.loading-indicator');
     const messageBoard = document.querySelector('.message-board');
@@ -32,7 +32,7 @@ export function showLoadingIndicator() {
 /**
  * 로딩 인디케이터를 숨깁니다.
  */
-export function hideLoadingIndicator() {
+function hideLoadingIndicator() {
     const loadingIndicator = document.querySelector('.loading-indicator');
     loadingIndicator.style.display = 'none';
 }
@@ -40,7 +40,7 @@ export function hideLoadingIndicator() {
 /**
 * 점수판을 업데이트합니다.
 */
-export function updateScoreboard() {
+function updateScoreboard() {
     const playerScoreElement = document.getElementById('player-score-value');
     const tieScoreElement = document.getElementById('tie-score-value');
     const aiScoreElement = document.getElementById('ai-score-value');
@@ -128,3 +128,5 @@ backButton.addEventListener('click', function (e) {
     gameMenu.style.display = 'block';
     gameRulesContainer.classList.remove('show');
 });
+
+export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard };

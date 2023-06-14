@@ -11,7 +11,7 @@ conversation = conversation ? JSON.parse(conversation) : convo.conversation;
  * @param {object} data - 사용자의 입력 데이터
  * @returns {Promise} - AI 응답을 담은 프로미스 객체
  */
-export function sendToAI(data) {
+function sendToAI(data) {
     let newMessage = data;
     conversation = [...conversation, newMessage];
     // 서버와 대화 진행
@@ -25,7 +25,6 @@ export function sendToAI(data) {
     })
         .then((res) => {
             if (res.ok) {
-                // console.log(res);
                 return res.json();
             } else {
                 throw new Error('Server response wasn\'t OK');
@@ -44,3 +43,5 @@ export function sendToAI(data) {
             }
         })
 }
+
+export { sendToAI };
