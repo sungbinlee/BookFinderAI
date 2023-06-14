@@ -2,6 +2,10 @@
     overflow: hidden;
 }
 
+#crt {
+    filter: url(#SphereMapTest);
+}
+
 #crt:before {
     content: " ";
     display: block;
@@ -30,6 +34,14 @@
     position: absolute;
     bottom: 100%;
     animation: scanline 10s linear infinite;
+}
+
+.overay {
+    display: none;
+    position: absolute;
+    top: -9999;
+    z-index: 0;
+    visibility: hidden;
 }
 
 .scanline {
