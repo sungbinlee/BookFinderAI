@@ -79,14 +79,14 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 
-let gameRulesLink = document.querySelector('.game-rules-link');
-let gameRulesContainer = document.querySelector('.game-rules-container');
-let backButton = document.querySelector('.back-button');
-let gameMenu = document.querySelector('.game-menu');
-let game = document.querySelector('.game');
-let gameStart = document.querySelector('.game-start');
-let menu = document.querySelector('.menu');
-let title = document.querySelector('.title');
+const gameRulesLink = document.querySelector('.game-rules-link');
+const gameRulesContainer = document.querySelector('.game-rules-container');
+const backButton = document.querySelector('.back-button');
+const gameMenu = document.querySelector('.game-menu');
+const game = document.querySelector('.game');
+const gameStart = document.querySelector('.game-start');
+const menu = document.querySelector('.menu');
+const title = document.querySelector('.title');
 
 const btn = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/btn.m4a');
 
