@@ -19,9 +19,9 @@
         <div id="screen">
             <div class="scanlineAnimation"></div>
             <!-- 렌즈효과 오버레이 -->
-            <div id="crt" style="filter: url(#SphereMapTest)">
+            <div id="crt">
                 <div class="scanline"></div>
-                <div style=" display: none; position: absolute; top:-9999; z-index:0; visibility: hidden;">
+                <div class="overay">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-root"
                         z-index="-1">
                         <defs>
@@ -38,9 +38,8 @@
                     <!-- 음소거 스피커 -->
                     <div class="mute-button-wrapper">
                         <img src="./assets/img/volume-high.png" class="fa-volume-high"></img>
-                        <img src="./assets/img/volume-xmark.png" class="fa-volume-xmark" style="display: none;"></img>
+                        <img src="./assets/img/volume-xmark.png" class="fa-volume-xmark"></img>
                     </div>
-                    <!-- 헤더 -->
                     <header>
                         <h1 class="title">TIC-TAC-TOE</h1>
                         <h1 class="subtitle">with ChatGPT</h1>

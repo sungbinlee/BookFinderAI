@@ -1,4 +1,4 @@
-import * as gpt from "./chatgpt-interface.js";
+import { sendToAI } from "./chatgpt-interface.js";
 import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage, typingTimeout } from "./ui.js"
 
 // 점수판
@@ -220,8 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function makeAIMove(userAction) {
         showLoadingIndicator();
-        gpt.sendToAI(userAction).then(res => {
-            // console.log(res);
+        sendToAI(userAction).then(res => {
 
             //보드판 비활성화; AI응답시까지
             board.style.pointerEvents = 'none';
@@ -260,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let muteButtonWrapper = document.querySelector('.mute-button-wrapper');
     let muteButtonHigh = document.querySelector('.fa-volume-high');
     let muteButtonXMark = document.querySelector('.fa-volume-xmark');
+
     // 음소거 기능
     muteButtonWrapper.addEventListener('click', function (e) {
         e.preventDefault();
