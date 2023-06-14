@@ -17,37 +17,38 @@
     <div class="preloader-wrapper">
         <div class="preloader"></div>
     </div>
-    <div id="monitor">
-        <!-- 테두리 -->
-        <div id="screen">
-            <div class="scanlineAnimation"></div>
-            <!-- 렌즈효과 오버레이 -->
-            <div id="crt">
-                <div class="scanline"></div>
-                <div class="overay">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-root"
-                        z-index="-1">
-                        <defs>
-                            <filter id="SphereMapTest" filterUnits="objectBoundingBox" x="-0.5" y="-1.1" width="2.0"
-                                height="3.5">
-                                <feImage id="mapa" result="Map" xlink:href="./assets/img/sphere_wide.png"></feImage>
-                                <feDisplacementMap id="despMap" in="SourceGraphic" in2="map" scale="120"
-                                    xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
-                            </filter>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="terminal">
-                    <!-- 음소거 스피커 -->
-                    <div class="mute-button-wrapper">
-                        <img src="./assets/img/volume-high.png" class="fa-volume-high"></img>
-                        <img src="./assets/img/volume-xmark.png" class="fa-volume-xmark"></img>
+
+    <main>
+        <div id="monitor">
+            <!-- 테두리 -->
+            <div id="screen">
+                <div class="scanlineAnimation"></div>
+                <!-- 렌즈효과 오버레이 -->
+                <div id="crt">
+                    <div class="scanline"></div>
+                    <div class="overay">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg-root"
+                            z-index="-1">
+                            <defs>
+                                <filter id="SphereMapTest" filterUnits="objectBoundingBox" x="-0.5" y="-1.1" width="2.0"
+                                    height="3.5">
+                                    <feImage id="mapa" result="Map" xlink:href="./assets/img/sphere_wide.png"></feImage>
+                                    <feDisplacementMap id="despMap" in="SourceGraphic" in2="map" scale="120"
+                                        xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                                </filter>
+                            </defs>
+                        </svg>
                     </div>
-                    <div class="title-container">
-                        <p class="title">TIC-TAC-TOE</p>
-                        <p class="subtitle">with ChatGPT</p>
-                    </div>
-                    <main>
+                    <div class="terminal">
+                        <!-- 음소거 스피커 -->
+                        <div class="mute-button-wrapper">
+                            <img src="./assets/img/volume-high.png" class="fa-volume-high"></img>
+                            <img src="./assets/img/volume-xmark.png" class="fa-volume-xmark"></img>
+                        </div>
+                        <div class="title-container">
+                            <p class="title">TIC-TAC-TOE</p>
+                            <p class="subtitle">with ChatGPT</p>
+                        </div>
                         <!-- 메뉴 -->
                         <div class="menu">
                             <div class="white-box">
@@ -93,12 +94,11 @@
                                 </div>
                             </div>
                         </div>
-                    </main>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </main>
 
     <footer class="version-info">Version 1.4.2</footer>
 
