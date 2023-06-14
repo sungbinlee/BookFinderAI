@@ -1,4 +1,3 @@
-/* 흰색 박스 스타일 */
 .white-box {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -8,7 +7,6 @@
 
 }
 
-/* 게임 시작 및 게임 방법 스타일 */
 .white-box a {
     display: block;
     margin-top: 1rem;
@@ -18,7 +16,6 @@
     text-decoration: none;
 }
 
-/* 깜빡이는 텍스트 스타일 */
 .blinking-text {
     position: relative;
     display: inline-block;
@@ -117,7 +114,7 @@
     animation: blink 1s infinite;
 }
 
-/* //터치 영역 증가 */
+/* 터치 영역 증가 */
 .back-button::after {
     content: "";
     position: absolute;
@@ -154,6 +151,4 @@
     width: 50px;
     height: 50px;
     border-radius: 20px;
-    /* border: 1px dashed #ccc;
-    background-color: rgba(255, 0, 0, 0.1); */
 }

@@ -12,17 +12,6 @@
     color: rgb(0, 217, 0);
 }
 
-/* .loading-indicator::after {
-    content: '';
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border: 4px solid #cccccc;
-    border-top-color: #333;
-    border-radius: 50%;
-    animation: spin 1s infinite linear;
-} */
-
 .preloader-wrapper {
     position: fixed;
     top: 0;
