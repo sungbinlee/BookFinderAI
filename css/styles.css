@@ -39,6 +39,7 @@ body {
     margin-bottom: 20px;
     white-space: nowrap;
     margin-top: 40px;
+    font-weight: bold;
 }
 
 .animation:hover {
