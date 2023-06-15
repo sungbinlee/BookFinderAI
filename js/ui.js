@@ -128,4 +128,4 @@ backButton.addEventListener('click', function (e) {
     gameRulesContainer.classList.remove('show');
 });
 
-export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard };
+export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard, typeMessage };

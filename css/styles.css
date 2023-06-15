@@ -80,3 +80,36 @@ body {
         right: -20px;
     }
 }
+
+/* 매트릭스 효과 */
+@keyframes matrixAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+.matrix-text {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #00FF00;
+    font-size: 24px;
+    animation: matrixAnimation linear infinite;
+    white-space: nowrap;
+}

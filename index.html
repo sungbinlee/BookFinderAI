@@ -40,57 +40,59 @@
                         </svg>
                     </div>
                     <div class="terminal">
-                        <!-- 음소거 스피커 -->
-                        <div class="mute-button-wrapper">
-                            <img src="./assets/img/volume-high.png" class="fa-volume-high"></img>
-                            <img src="./assets/img/volume-xmark.png" class="fa-volume-xmark"></img>
-                        </div>
-                        <div class="title-container">
-                            <p class="title">TIC-TAC-TOE</p>
-                            <p class="subtitle">with ChatGPT</p>
-                        </div>
-                        <!-- 메뉴 -->
-                        <div class="menu">
-                            <div class="white-box">
-                                <div class="game-menu">
-                                    <a href="#" class="blinking-text game-rules-link">게임 방법</a>
-                                    <a href="#" class="blinking-text game-start">게임 시작</a>
-                                </div>
-                                <div class="game-rules-container">
-                                    <div class="game-rules-content">
-                                        <h2>게임 규칙</h2>
-                                        <p>1. 틱택토는 3x3 크기의 게임판에서 진행되는 게임입니다.</p>
-                                        <p>2. 플레이어가 먼저 빈 칸에 마크를 표시합니다.</p>
-                                        <p>3. 가로, 세로, 대각선으로 같은 마크를 3개 놓으면 승리합니다.</p>
-                                        <p>4. 게임판이 모두 채워져도 누구도 승리하지 못하면 무승부입니다.</p>
+                        <div class="game-container">
+                            <!-- 음소거 스피커 -->
+                            <div class="mute-button-wrapper">
+                                <img src="./assets/img/volume-high.png" class="fa-volume-high"></img>
+                                <img src="./assets/img/volume-xmark.png" class="fa-volume-xmark"></img>
+                            </div>
+                            <div class="title-container">
+                                <p class="title">TIC-TAC-TOE</p>
+                                <p class="subtitle">with ChatGPT</p>
+                            </div>
+                            <!-- 메뉴 -->
+                            <div class="menu">
+                                <div class="white-box">
+                                    <div class="game-menu">
+                                        <a href="#" class="blinking-text game-rules-link">게임 방법</a>
+                                        <a href="#" class="blinking-text game-start">게임 시작</a>
                                     </div>
-                                    <a href="#" class="back-button">뒤로가기</a>
+                                    <div class="game-rules-container">
+                                        <div class="game-rules-content">
+                                            <h2>게임 규칙</h2>
+                                            <p>1. 틱택토는 3x3 크기의 게임판에서 진행되는 게임입니다.</p>
+                                            <p>2. 플레이어가 먼저 빈 칸에 마크를 표시합니다.</p>
+                                            <p>3. 가로, 세로, 대각선으로 같은 마크를 3개 놓으면 승리합니다.</p>
+                                            <p>4. 게임판이 모두 채워져도 누구도 승리하지 못하면 무승부입니다.</p>
+                                        </div>
+                                        <a href="#" class="back-button">뒤로가기</a>
+                                    </div>
+                                </div>
+                                <div class="credits">
+                                    <p class="credit-text">Created by Sungbin Lee</p>
+                                    <a class="github-icon-a" href="https://github.com/sungbinlee/TicTacToeWithGPT"
+                                        target="_blank"><img src="./assets/img/github-logo.png" alt="GitHub 아이콘"
+                                            class="github-icon"></a>
                                 </div>
                             </div>
-                            <div class="credits">
-                                <p class="credit-text">Created by Sungbin Lee</p>
-                                <a class="github-icon-a" href="https://github.com/sungbinlee/TicTacToeWithGPT"
-                                    target="_blank"><img src="./assets/img/github-logo.png" alt="GitHub 아이콘"
-                                        class="github-icon"></a>
-                            </div>
-                        </div>
-                        <!-- 게임판 -->
-                        <div class="game">
-                            <div class="board"></div>
-                            <div class="message-board"></div>
-                            <div class="loading-indicator"></div>
-                            <div class="scoreboard">
-                                <div class="score-container">
-                                    <div class="score-label">Player</div>
-                                    <div class="score-value" id="player-score-value">0</div>
-                                </div>
-                                <div class="score-container">
-                                    <div class="score-label">Ties</div>
-                                    <div class="score-value" id="tie-score-value">0</div>
-                                </div>
-                                <div class="score-container">
-                                    <div class="score-label">ChatGPT</div>
-                                    <div class="score-value" id="ai-score-value">0</div>
+                            <!-- 게임판 -->
+                            <div class="game">
+                                <div class="board"></div>
+                                <div class="message-board"></div>
+                                <div class="loading-indicator"></div>
+                                <div class="scoreboard">
+                                    <div class="score-container">
+                                        <div class="score-label">Player</div>
+                                        <div class="score-value" id="player-score-value">0</div>
+                                    </div>
+                                    <div class="score-container">
+                                        <div class="score-label">Ties</div>
+                                        <div class="score-value" id="tie-score-value">0</div>
+                                    </div>
+                                    <div class="score-container">
+                                        <div class="score-label">ChatGPT</div>
+                                        <div class="score-value" id="ai-score-value">0</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +107,7 @@
     <script src="./js/app.js" type="module"></script>
     <script src="./js/chatgpt-interface.js" type="module"></script>
     <script src="./js/ui.js" type="module"></script>
+    <script src="./js/matrix.js" type="module"></script>
 </body>
 
 </html>
