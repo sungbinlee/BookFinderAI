@@ -128,4 +128,10 @@ backButton.addEventListener('click', function (e) {
     gameRulesContainer.classList.remove('show');
 });
 
+//스티키 노트
+document.getElementById('sticky').addEventListener('click', fly);
+function fly(event) {
+    event.target.classList.toggle("fly");
+}
+
 export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard, typeMessage };
