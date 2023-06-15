@@ -75,41 +75,52 @@ body {
     clip: rect(0, 0, 0, 0);
 }
 
+.hint {
+    position: absolute;
+    color: #555;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+    font-size: 14px;
+}
+
+.post-it {
+    transform: rotate(3deg);
+    line-height: 1;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #e8e8e8;
+    font-size: 1.2rem;
+    color: #333;
+    border-bottom-right-radius: 50px 14px;
+    display: inline-block;
+    background: #ffff88;
+    background: linear-gradient(135deg,
+            #ffff88 81%,
+            #ffff88 82%,
+            #ffff88 82%,
+            #ffffc6 100%);
+    transition-property: left top transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+}
+
+.post-it:hover {
+    border-bottom-left-radius: 20px 5px;
+    border-bottom-right-radius: 40px 28px;
+}
+
+.post-it.fly {
+    transform: translate(-3rem, 6rem) rotate(260deg);
+}
+
 @media (max-width: 480px) {
     h1.subtitle {
         right: -20px;
     }
-}
 
-/* 매트릭스 효과 */
-@keyframes matrixAnimation {
-    0% {
-        opacity: 0;
-        transform: translateY(-100%);
+    .hint,
+    .post-it {
+        display: none;
     }
-
-    10% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    90% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-}
-
-.matrix-text {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #00FF00;
-    font-size: 24px;
-    animation: matrixAnimation linear infinite;
-    white-space: nowrap;
 }
