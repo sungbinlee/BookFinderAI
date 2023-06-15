@@ -4,7 +4,9 @@
  * Post-It note:	  https://mentormate.com/blog/css-postit-note/
  * Retro CRT:         https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh
  */
+
 @import url("https://fonts.googleapis.com/css?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 @import './components/animations.css';
 @import './components/announce.css';
@@ -95,8 +97,9 @@ body {
     text-align: center;
     padding: 1rem;
     border: 1px solid #e8e8e8;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #333;
+    font-family: "Permanent Marker", cursive;
     border-bottom-right-radius: 50px 14px;
     display: inline-block;
     background: #ffff88;
