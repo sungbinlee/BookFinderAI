@@ -111,6 +111,11 @@
     display: block;
 }
 
+.canvas {
+    overflow-y: hidden;
+    position: fixed;
+}
+
 /* CRT 효과를 최적화한 모바일 뷰 */
 @media (max-width: 480px) {
     #screen {
