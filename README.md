@@ -11,6 +11,7 @@ TicTacToeWithChatGPT은 ChatGPT API를 활용한 인공지능 상대 틱택토 �
 
 2. AI 및 자연어 처리:
     - OpenAI ChatGPT API: 인공지능 모델과의 대화를 처리하기 위한 API입니다. 사용자와 AI 간의 대화를 처리하고 AI의 응답을 받아올 수 있습니다.
+
 위의 개발 스택을 활용하여 TicTacToeWithChatGPT를 구현했습니다. 
 
 HTML, CSS, JavaScript를 사용하여 웹 페이지의 구조, 스타일, 동적인 기능을 구현했고, OpenAI ChatGPT API를 통해 AI와의 상호작용을 처리했습니다. 이를 통해 사용자는 웹 브라우저에서 게임을 플레이하고 AI와 대화할 수 있는 틱택토 게임을 즐길 수 있습니다.
