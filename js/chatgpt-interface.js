@@ -1,10 +1,10 @@
-import * as convo from "./conversation.js";
+import { message } from "./conversation.js";
 
 const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
 // 대화 내용을 로컬 스토리지에서 불러오거나 초기화합니다.
 let conversation = localStorage.getItem("conversation");
-conversation = conversation ? JSON.parse(conversation) : convo.conversation;
+conversation = conversation ? JSON.parse(conversation) : message;
 
 /**
  * 대화 내용을 AI로 전송하고 응답을 받아옵니다.
@@ -24,11 +24,7 @@ function sendToAI(data) {
         redirect: "follow",
     })
         .then((res) => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                throw new Error('Server response wasn\'t OK');
-            }
+            return res.json();
         })
         .then((res) => {
             try {
