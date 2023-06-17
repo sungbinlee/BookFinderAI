@@ -128,10 +128,29 @@ backButton.addEventListener('click', function (e) {
     gameRulesContainer.classList.remove('show');
 });
 
+const muteButtonXMark = document.querySelector('.fa-volume-xmark');
+const muteButtonHigh = document.querySelector('.fa-volume-high');
+
+/**
+ * 소리를 킵니다.
+ */
+function mute() {
+    muteButtonHigh.style.display = 'none';
+    muteButtonXMark.style.display = 'block';
+}
+
+/**
+ * 음소거를 합니다
+ */
+function unmute() {
+    muteButtonHigh.style.display = 'block';
+    muteButtonXMark.style.display = 'none';
+}
+
 //스티키 노트
 document.getElementById('sticky').addEventListener('click', fly);
 function fly(event) {
     event.target.classList.toggle("fly");
 }
 
-export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard, typeMessage };
+export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard, typeMessage, mute, unmute };

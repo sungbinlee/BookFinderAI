@@ -1,5 +1,5 @@
 import { sendToAI } from "./chatgpt-interface.js";
-import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage, typingTimeout } from "./ui.js"
+import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage, typingTimeout, mute, unmute } from "./ui.js"
 
 // 점수판
 export let playerScore = 0;
@@ -265,11 +265,9 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         isMuted = !isMuted; // 음소거 상태 변경
         if (isMuted) {
-            muteButtonHigh.style.display = 'none';
-            muteButtonXMark.style.display = 'block';
+            mute()
         } else {
-            muteButtonHigh.style.display = 'block';
-            muteButtonXMark.style.display = 'none';
+            unmute()
         }
     });
 
