@@ -222,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (res === -1) {
                 displayMessage("잘못된 응답을 받았습니다'(×_×;)'게임을 다시 시작합니다.")
                 hideLoadingIndicator();
+                board.style.pointerEvents = 'auto';
                 resetBoard();
                 return 0;
             }
