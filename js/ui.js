@@ -1,4 +1,5 @@
 import { playerScore, tieScore, aiScore, isMuted } from "./app.js";
+import { btn } from "./sounds.js";
 
 let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
 
@@ -87,8 +88,6 @@ const game = document.querySelector('.game');
 const gameStart = document.querySelector('.game-start');
 const menu = document.querySelector('.menu');
 const title = document.querySelector('.title');
-
-const btn = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/btn.m4a');
 
 title.addEventListener('click', function (e) {
     e.preventDefault();
