@@ -1,4 +1,5 @@
 import { playerScore, tieScore, aiScore, isMuted } from "./app.js";
+import { btn } from "./sounds.js";
 
 let typingTimeout; // 타잎 메세지 중지를 위한 타임아웃 변수
 
@@ -88,8 +89,6 @@ const gameStart = document.querySelector('.game-start');
 const menu = document.querySelector('.menu');
 const title = document.querySelector('.title');
 
-const btn = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/btn.m4a');
-
 title.addEventListener('click', function (e) {
     e.preventDefault();
     if (!isMuted) {
@@ -128,10 +127,29 @@ backButton.addEventListener('click', function (e) {
     gameRulesContainer.classList.remove('show');
 });
 
+const muteButtonXMark = document.querySelector('.fa-volume-xmark');
+const muteButtonHigh = document.querySelector('.fa-volume-high');
+
+/**
+ * 소리를 킵니다.
+ */
+function mute() {
+    muteButtonHigh.style.display = 'none';
+    muteButtonXMark.style.display = 'block';
+}
+
+/**
+ * 음소거를 합니다
+ */
+function unmute() {
+    muteButtonHigh.style.display = 'block';
+    muteButtonXMark.style.display = 'none';
+}
+
 //스티키 노트
 document.getElementById('sticky').addEventListener('click', fly);
 function fly(event) {
     event.target.classList.toggle("fly");
 }
 
-export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard, typeMessage };
+export { typingTimeout, displayMessage, showLoadingIndicator, hideLoadingIndicator, updateScoreboard, typeMessage, mute, unmute };

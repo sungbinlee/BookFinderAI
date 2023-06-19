@@ -1,5 +1,6 @@
 import { sendToAI } from "./chatgpt-interface.js";
-import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage, typingTimeout } from "./ui.js"
+import { showLoadingIndicator, hideLoadingIndicator, updateScoreboard, displayMessage, typingTimeout, mute, unmute } from "./ui.js"
+import { turnO, turnX, victorySound, defeatSound, tieSound } from "./sounds.js";
 
 // 점수판
 export let playerScore = 0;
@@ -23,13 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 보드판에서 user는 1, ai는 -1로 표현합니다.
     const user = 1;
     const ai = -1;
-
-    // 사운드 재생용 요소 생성
-    const turnX = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/x.m4a');
-    const turnO = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/o.m4a');
-    const victorySound = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/victory.m4a');
-    const defeatSound = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/defeat.m4a');
-    const tieSound = new Audio('https://github.com/sungbinlee/TicTacToeWithGPT/raw/main/assets/audio/tie.m4a');
 
     /**
     * 게임 보드를 생성합니다.
@@ -228,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (res === -1) {
                 displayMessage("잘못된 응답을 받았습니다'(×_×;)'게임을 다시 시작합니다.")
                 hideLoadingIndicator();
+                board.style.pointerEvents = 'auto';
                 resetBoard();
                 return 0;
             }
@@ -265,11 +260,9 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         isMuted = !isMuted; // 음소거 상태 변경
         if (isMuted) {
-            muteButtonHigh.style.display = 'none';
-            muteButtonXMark.style.display = 'block';
+            mute()
         } else {
-            muteButtonHigh.style.display = 'block';
-            muteButtonXMark.style.display = 'none';
+            unmute()
         }
     });
 
