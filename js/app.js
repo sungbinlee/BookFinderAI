@@ -15,7 +15,7 @@ export let isMuted = false;
  */
 document.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector('.board');
-    const cells = [];
+    let cells = [];
 
     let gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]; // 게임판 2d array
     let currentPlayer = 'X';
