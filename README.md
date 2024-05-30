@@ -1,5 +1,5 @@
 # TicTacToeWithChatGPT 
-## :link: [View deployment](https://tic-tac-toe.sungbinlee.dev/)
+## :link: [View deployment](https://tic-tac-toe.sungbinlee.dev/) (OpenAI 과금으로 서비스 중단)
 ## :bulb: Overview
 TicTacToeWithChatGPT은 ChatGPT API를 활용한 인공지능 상대 틱택토 게임입니다. 사용자와 AI 간의 턴 기반 게임을 제공하며, AI는 ChatGPT를 통해 동작합니다.
 ### TicTacToeWithChatGPT의 개발에는 다음과 같은 개발 스택이 사용되었습니다:
